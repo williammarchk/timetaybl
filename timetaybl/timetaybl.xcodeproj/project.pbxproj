@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2286F04F5DBFB479730F546F /* Pods_timetaybl__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17FDE54FD49FDFC6FF13284 /* Pods_timetaybl__macOS_.framework */; };
 		4E4DF52D28C61ECB00B01433 /* CalendarApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4DF52C28C61ECB00B01433 /* CalendarApi.m */; };
 		4E4DF52E28C61ECB00B01433 /* CalendarApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4DF52C28C61ECB00B01433 /* CalendarApi.m */; };
 		685513FE28B8D2E100504714 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685513FD28B8D2E100504714 /* Tests_iOS.swift */; };
@@ -21,6 +22,7 @@
 		6855141228B8D2E100504714 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685513E328B8D2DF00504714 /* Persistence.swift */; };
 		6855141328B8D2E100504714 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 685513E428B8D2E100504714 /* Assets.xcassets */; };
 		6855141428B8D2E100504714 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 685513E428B8D2E100504714 /* Assets.xcassets */; };
+		93042840AFFC5C54A0A6FA98 /* Pods_timetaybl__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F0BC9B4C500C0D73BE84806 /* Pods_timetaybl__iOS_.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,9 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F0BC9B4C500C0D73BE84806 /* Pods_timetaybl__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_timetaybl__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E4DF52B28C61ECB00B01433 /* Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		4E4DF52C28C61ECB00B01433 /* CalendarApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarApi.m; sourceTree = "<group>"; };
 		4E4DF52F28C61FAA00B01433 /* CalendarApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarApi.h; sourceTree = "<group>"; };
+		54578436AFA5B769C499F642 /* Pods-timetaybl (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-timetaybl (macOS).release.xcconfig"; path = "Target Support Files/Pods-timetaybl (macOS)/Pods-timetaybl (macOS).release.xcconfig"; sourceTree = "<group>"; };
+		67A85D6E58C3F4283AEF1E27 /* Pods-timetaybl (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-timetaybl (macOS).debug.xcconfig"; path = "Target Support Files/Pods-timetaybl (macOS)/Pods-timetaybl (macOS).debug.xcconfig"; sourceTree = "<group>"; };
 		685513E028B8D2DF00504714 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		685513E128B8D2DF00504714 /* timetayblApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timetayblApp.swift; sourceTree = "<group>"; };
 		685513E228B8D2DF00504714 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,6 +65,9 @@
 		6855140428B8D2E100504714 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6855140828B8D2E100504714 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		6855140A28B8D2E100504714 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D6A851724ACB715C739B5D0 /* Pods-timetaybl (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-timetaybl (iOS).debug.xcconfig"; path = "Target Support Files/Pods-timetaybl (iOS)/Pods-timetaybl (iOS).debug.xcconfig"; sourceTree = "<group>"; };
+		8BF4B1E39FB5E6AA0F430FCF /* Pods-timetaybl (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-timetaybl (iOS).release.xcconfig"; path = "Target Support Files/Pods-timetaybl (iOS)/Pods-timetaybl (iOS).release.xcconfig"; sourceTree = "<group>"; };
+		E17FDE54FD49FDFC6FF13284 /* Pods_timetaybl__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_timetaybl__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93042840AFFC5C54A0A6FA98 /* Pods_timetaybl__iOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2286F04F5DBFB479730F546F /* Pods_timetaybl__macOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +113,8 @@
 				685513FC28B8D2E100504714 /* Tests iOS */,
 				6855140728B8D2E100504714 /* Tests macOS */,
 				685513EA28B8D2E100504714 /* Products */,
+				B2DF4D581F19136EA2E1C669 /* Pods */,
+				9691453DBA125474799502DC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -167,6 +179,27 @@
 			path = "Tests macOS";
 			sourceTree = "<group>";
 		};
+		9691453DBA125474799502DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F0BC9B4C500C0D73BE84806 /* Pods_timetaybl__iOS_.framework */,
+				E17FDE54FD49FDFC6FF13284 /* Pods_timetaybl__macOS_.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B2DF4D581F19136EA2E1C669 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7D6A851724ACB715C739B5D0 /* Pods-timetaybl (iOS).debug.xcconfig */,
+				8BF4B1E39FB5E6AA0F430FCF /* Pods-timetaybl (iOS).release.xcconfig */,
+				67A85D6E58C3F4283AEF1E27 /* Pods-timetaybl (macOS).debug.xcconfig */,
+				54578436AFA5B769C499F642 /* Pods-timetaybl (macOS).release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -174,9 +207,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6855141728B8D2E100504714 /* Build configuration list for PBXNativeTarget "timetaybl (iOS)" */;
 			buildPhases = (
+				7D41163132AF8F3AD9866395 /* [CP] Check Pods Manifest.lock */,
 				685513E528B8D2E100504714 /* Sources */,
 				685513E628B8D2E100504714 /* Frameworks */,
 				685513E728B8D2E100504714 /* Resources */,
+				D302CDF7E9C081EB8D206B41 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -191,9 +226,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6855141A28B8D2E100504714 /* Build configuration list for PBXNativeTarget "timetaybl (macOS)" */;
 			buildPhases = (
+				8283E002BDF7A2976EBA743F /* [CP] Check Pods Manifest.lock */,
 				685513ED28B8D2E100504714 /* Sources */,
 				685513EE28B8D2E100504714 /* Frameworks */,
 				685513EF28B8D2E100504714 /* Resources */,
+				9E2F369E357F4F3F44E6A5AA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -320,6 +357,87 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7D41163132AF8F3AD9866395 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-timetaybl (iOS)-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8283E002BDF7A2976EBA743F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-timetaybl (macOS)-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E2F369E357F4F3F44E6A5AA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-timetaybl (macOS)/Pods-timetaybl (macOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-timetaybl (macOS)/Pods-timetaybl (macOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-timetaybl (macOS)/Pods-timetaybl (macOS)-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D302CDF7E9C081EB8D206B41 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-timetaybl (iOS)/Pods-timetaybl (iOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-timetaybl (iOS)/Pods-timetaybl (iOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-timetaybl (iOS)/Pods-timetaybl (iOS)-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		685513E528B8D2E100504714 /* Sources */ = {
@@ -491,6 +609,7 @@
 		};
 		6855141828B8D2E100504714 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D6A851724ACB715C739B5D0 /* Pods-timetaybl (iOS).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -516,6 +635,7 @@
 		};
 		6855141928B8D2E100504714 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BF4B1E39FB5E6AA0F430FCF /* Pods-timetaybl (iOS).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -541,6 +661,7 @@
 		};
 		6855141B28B8D2E100504714 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67A85D6E58C3F4283AEF1E27 /* Pods-timetaybl (macOS).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -569,6 +690,7 @@
 		};
 		6855141C28B8D2E100504714 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54578436AFA5B769C499F642 /* Pods-timetaybl (macOS).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

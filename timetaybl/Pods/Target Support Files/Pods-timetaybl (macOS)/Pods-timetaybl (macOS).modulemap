@@ -1,0 +1,6 @@
+framework module Pods_timetaybl__macOS_ {
+  umbrella header "Pods-timetaybl (macOS)-umbrella.h"
+
+  export *
+  module * { export * }
+}
