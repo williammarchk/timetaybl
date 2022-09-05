@@ -89,17 +89,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		14B2CDF528C3556500F95C5D /* API */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
 		685513D928B8D2DF00504714 = {
 			isa = PBXGroup;
 			children = (
-				14B2CDF528C3556500F95C5D /* API */,
 				685513DE28B8D2DF00504714 /* Shared */,
 				685513EB28B8D2E100504714 /* iOS */,
 				685513F228B8D2E100504714 /* macOS */,
