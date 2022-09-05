@@ -3,12 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E4DF52D28C61ECB00B01433 /* CalendarApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4DF52C28C61ECB00B01433 /* CalendarApi.m */; };
-		4E4DF52E28C61ECB00B01433 /* CalendarApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4DF52C28C61ECB00B01433 /* CalendarApi.m */; };
+		4E69E2BF28C67B89008C2DC6 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E69E2BE28C67B89008C2DC6 /* DataLoader.swift */; };
+		4E69E2C028C67B89008C2DC6 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E69E2BE28C67B89008C2DC6 /* DataLoader.swift */; };
+		4EEB222C28C649EE00705C94 /* client_secret_184149248061-u0pqmh6q7gkheoffs3pelf111qhdaaqk.apps.googleusercontent.com.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EEB222B28C649EE00705C94 /* client_secret_184149248061-u0pqmh6q7gkheoffs3pelf111qhdaaqk.apps.googleusercontent.com.json */; };
+		4EEB222D28C649EE00705C94 /* client_secret_184149248061-u0pqmh6q7gkheoffs3pelf111qhdaaqk.apps.googleusercontent.com.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EEB222B28C649EE00705C94 /* client_secret_184149248061-u0pqmh6q7gkheoffs3pelf111qhdaaqk.apps.googleusercontent.com.json */; };
+		4EEB222F28C665FC00705C94 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB222E28C665FC00705C94 /* Auth.swift */; };
+		4EEB223028C665FC00705C94 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB222E28C665FC00705C94 /* Auth.swift */; };
+		4EEB223228C6660B00705C94 /* JSONProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB223128C6660B00705C94 /* JSONProcessing.swift */; };
+		4EEB223328C6660B00705C94 /* JSONProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB223128C6660B00705C94 /* JSONProcessing.swift */; };
+		4EEB223628C6671900705C94 /* OAuth2 in Frameworks */ = {isa = PBXBuildFile; productRef = 4EEB223528C6671900705C94 /* OAuth2 */; };
 		685513FE28B8D2E100504714 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685513FD28B8D2E100504714 /* Tests_iOS.swift */; };
 		6855140928B8D2E100504714 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6855140828B8D2E100504714 /* Tests_macOS.swift */; };
 		6855140B28B8D2E100504714 /* timetaybl.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 685513DF28B8D2DF00504714 /* timetaybl.xcdatamodeld */; };
@@ -41,9 +48,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4E4DF52B28C61ECB00B01433 /* Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
-		4E4DF52C28C61ECB00B01433 /* CalendarApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarApi.m; sourceTree = "<group>"; };
-		4E4DF52F28C61FAA00B01433 /* CalendarApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarApi.h; sourceTree = "<group>"; };
+		4E69E2BE28C67B89008C2DC6 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		4EEB222B28C649EE00705C94 /* client_secret_184149248061-u0pqmh6q7gkheoffs3pelf111qhdaaqk.apps.googleusercontent.com.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "client_secret_184149248061-u0pqmh6q7gkheoffs3pelf111qhdaaqk.apps.googleusercontent.com.json"; sourceTree = "<group>"; };
+		4EEB222E28C665FC00705C94 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		4EEB223128C6660B00705C94 /* JSONProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONProcessing.swift; sourceTree = "<group>"; };
 		685513E028B8D2DF00504714 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		685513E128B8D2DF00504714 /* timetayblApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timetayblApp.swift; sourceTree = "<group>"; };
 		685513E228B8D2DF00504714 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EEB223628C6671900705C94 /* OAuth2 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +103,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4EEB222A28C649B500705C94 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				4EEB222B28C649EE00705C94 /* client_secret_184149248061-u0pqmh6q7gkheoffs3pelf111qhdaaqk.apps.googleusercontent.com.json */,
+				4EEB222E28C665FC00705C94 /* Auth.swift */,
+				4E69E2BE28C67B89008C2DC6 /* DataLoader.swift */,
+				4EEB223128C6660B00705C94 /* JSONProcessing.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
 		685513D928B8D2DF00504714 = {
 			isa = PBXGroup;
 			children = (
@@ -111,12 +131,10 @@
 			children = (
 				685513E128B8D2DF00504714 /* timetayblApp.swift */,
 				685513E228B8D2DF00504714 /* ContentView.swift */,
+				4EEB222A28C649B500705C94 /* Api */,
 				685513E328B8D2DF00504714 /* Persistence.swift */,
-				4E4DF52C28C61ECB00B01433 /* CalendarApi.m */,
-				4E4DF52F28C61FAA00B01433 /* CalendarApi.h */,
 				685513E428B8D2E100504714 /* Assets.xcassets */,
 				685513DF28B8D2DF00504714 /* timetaybl.xcdatamodeld */,
-				4E4DF52B28C61ECB00B01433 /* Bridge.h */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -200,6 +218,9 @@
 			dependencies = (
 			);
 			name = "timetaybl (macOS)";
+			packageProductDependencies = (
+				4EEB223528C6671900705C94 /* OAuth2 */,
+			);
 			productName = "timetaybl (macOS)";
 			productReference = 685513F128B8D2E100504714 /* timetaybl.app */;
 			productType = "com.apple.product-type.application";
@@ -276,6 +297,9 @@
 				Base,
 			);
 			mainGroup = 685513D928B8D2DF00504714;
+			packageReferences = (
+				4EEB223428C6671900705C94 /* XCRemoteSwiftPackageReference "OAuth2" */,
+			);
 			productRefGroup = 685513EA28B8D2E100504714 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -294,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6855141328B8D2E100504714 /* Assets.xcassets in Resources */,
+				4EEB222C28C649EE00705C94 /* client_secret_184149248061-u0pqmh6q7gkheoffs3pelf111qhdaaqk.apps.googleusercontent.com.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6855141428B8D2E100504714 /* Assets.xcassets in Resources */,
+				4EEB222D28C649EE00705C94 /* client_secret_184149248061-u0pqmh6q7gkheoffs3pelf111qhdaaqk.apps.googleusercontent.com.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,9 +353,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6855140B28B8D2E100504714 /* timetaybl.xcdatamodeld in Sources */,
-				4E4DF52D28C61ECB00B01433 /* CalendarApi.m in Sources */,
+				4EEB222F28C665FC00705C94 /* Auth.swift in Sources */,
+				4E69E2BF28C67B89008C2DC6 /* DataLoader.swift in Sources */,
 				6855141128B8D2E100504714 /* Persistence.swift in Sources */,
 				6855140D28B8D2E100504714 /* timetayblApp.swift in Sources */,
+				4EEB223228C6660B00705C94 /* JSONProcessing.swift in Sources */,
 				6855140F28B8D2E100504714 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,9 +367,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6855140C28B8D2E100504714 /* timetaybl.xcdatamodeld in Sources */,
-				4E4DF52E28C61ECB00B01433 /* CalendarApi.m in Sources */,
+				4EEB223028C665FC00705C94 /* Auth.swift in Sources */,
+				4E69E2C028C67B89008C2DC6 /* DataLoader.swift in Sources */,
 				6855141228B8D2E100504714 /* Persistence.swift in Sources */,
 				6855140E28B8D2E100504714 /* timetayblApp.swift in Sources */,
+				4EEB223328C6660B00705C94 /* JSONProcessing.swift in Sources */,
 				6855141028B8D2E100504714 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -561,7 +591,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Practice.timetaybl;
 				PRODUCT_NAME = timetaybl;
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = Shared/Bridge.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -589,7 +618,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Practice.timetaybl;
 				PRODUCT_NAME = timetaybl;
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = Shared/Bridge.h;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -732,6 +760,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4EEB223428C6671900705C94 /* XCRemoteSwiftPackageReference "OAuth2" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/p2/OAuth2.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.3.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4EEB223528C6671900705C94 /* OAuth2 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4EEB223428C6671900705C94 /* XCRemoteSwiftPackageReference "OAuth2" */;
+			productName = OAuth2;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		685513DF28B8D2DF00504714 /* timetaybl.xcdatamodeld */ = {

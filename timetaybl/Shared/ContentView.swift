@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import OAuth2
 
 //struct ContentView: View {
 //    @Environment(\.managedObjectContext) private var viewContext
@@ -78,9 +79,10 @@ struct Subject {
 
 
 struct ContentView: View {
-    var objC: CalendarAPI = CalendarAPI()
     init() {
-        objC.someProperty = "Hello"
+        print(GoogleLoader().attemptToAuthorize(callback: { (_: OAuth2JSON?, _: OAuth2Error?) -> Void in
+            ()
+        }))
     }
     @State private var subjects:[Subject] = []
     let subj = [Subject(name: "", color: Color.gray, room: "", periods: [])]
@@ -95,7 +97,6 @@ struct ContentView: View {
                     Text("Add a Subject").font(.system(size: 12))
                     Text("Add a Subject").font(.system(size: 12))
                 }
-                Text(objC.retreive()).font(.system(size: 20))
                 Spacer()
             }
             
