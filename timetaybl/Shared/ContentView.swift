@@ -73,9 +73,13 @@ struct Subject {
     var name: String
     var color: Color
     var room: String
-    var periods:[Int]
+    var periods: WeekandPeriod
 }
 
+struct WeekandPeriod {
+    var week1:[Int]
+    var week2:[Int]
+}
 
 struct ContentView: View {
     var objC: CalendarAPI = CalendarAPI()
@@ -83,13 +87,14 @@ struct ContentView: View {
         objC.someProperty = "Hello"
     }
     @State private var subjects:[Subject] = []
-    let subj = [Subject(name: "", color: Color.gray, room: "", periods: [])]
+    let subj = [Subject(name: "", color: Color.gray, room: "", periods: WeekandPeriod(week1: [], week2: []))]
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
             VStack {
                 Spacer()
                 Text("Format Your Own Timetable!").font(.system(size: 20))
+                Text("Here are your subjects")
                 Spacer()
                 HStack{
                     Text("Add a Subject").font(.system(size: 12))
@@ -99,6 +104,24 @@ struct ContentView: View {
                 Spacer()
             }
             
+        }
+    }
+}
+
+struct SubjectView: View {
+    var color: Color
+    var name: String
+    var room: String
+    var teacher: String
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 25.0)
+                .foregroundColor(color)
+            VStack {
+                Text(name)
+                Text(room)
+                Text(teacher)
+            }
         }
     }
 }
