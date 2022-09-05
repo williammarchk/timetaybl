@@ -12,3 +12,11 @@
 #endif /* CalendarApi_h */
 
 #import <Foundation/Foundation.h>
+
+@interface CalendarAPI : NSObject
+
+@property (strong, nonatomic) NSString* someProperty;
+
+- (NSString*) retreive;
+
+@end

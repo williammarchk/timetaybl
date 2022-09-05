@@ -78,6 +78,10 @@ struct Subject {
 
 
 struct ContentView: View {
+    var objC: CalendarAPI = CalendarAPI()
+    init() {
+        objC.someProperty = "Hello"
+    }
     @State private var subjects:[Subject] = []
     let subj = [Subject(name: "", color: Color.gray, room: "", periods: [])]
     var body: some View {
@@ -91,6 +95,7 @@ struct ContentView: View {
                     Text("Add a Subject").font(.system(size: 12))
                     Text("Add a Subject").font(.system(size: 12))
                 }
+                Text(objC.retreive()).font(.system(size: 20))
                 Spacer()
             }
             

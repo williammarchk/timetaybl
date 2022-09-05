@@ -7,3 +7,10 @@
 
 #import "CalendarApi.h"
 
+@implementation CalendarAPI
+
+- (NSString*) retreive {
+    return self.someProperty;
+}
+
+@end
