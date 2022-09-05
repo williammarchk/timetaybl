@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E4DF52D28C61ECB00B01433 /* CalendarApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4DF52C28C61ECB00B01433 /* CalendarApi.m */; };
+		4E4DF52E28C61ECB00B01433 /* CalendarApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4DF52C28C61ECB00B01433 /* CalendarApi.m */; };
 		685513FE28B8D2E100504714 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685513FD28B8D2E100504714 /* Tests_iOS.swift */; };
 		6855140928B8D2E100504714 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6855140828B8D2E100504714 /* Tests_macOS.swift */; };
 		6855140B28B8D2E100504714 /* timetaybl.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 685513DF28B8D2DF00504714 /* timetaybl.xcdatamodeld */; };
@@ -39,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E4DF52B28C61ECB00B01433 /* Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
+		4E4DF52C28C61ECB00B01433 /* CalendarApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarApi.m; sourceTree = "<group>"; };
+		4E4DF52F28C61FAA00B01433 /* CalendarApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarApi.h; sourceTree = "<group>"; };
 		685513E028B8D2DF00504714 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		685513E128B8D2DF00504714 /* timetayblApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timetayblApp.swift; sourceTree = "<group>"; };
 		685513E228B8D2DF00504714 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,8 +112,11 @@
 				685513E128B8D2DF00504714 /* timetayblApp.swift */,
 				685513E228B8D2DF00504714 /* ContentView.swift */,
 				685513E328B8D2DF00504714 /* Persistence.swift */,
+				4E4DF52C28C61ECB00B01433 /* CalendarApi.m */,
+				4E4DF52F28C61FAA00B01433 /* CalendarApi.h */,
 				685513E428B8D2E100504714 /* Assets.xcassets */,
 				685513DF28B8D2DF00504714 /* timetaybl.xcdatamodeld */,
+				4E4DF52B28C61ECB00B01433 /* Bridge.h */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -243,9 +251,11 @@
 				TargetAttributes = {
 					685513E828B8D2E100504714 = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 					};
 					685513F028B8D2E100504714 = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 					};
 					685513F828B8D2E100504714 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -317,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6855140B28B8D2E100504714 /* timetaybl.xcdatamodeld in Sources */,
+				4E4DF52D28C61ECB00B01433 /* CalendarApi.m in Sources */,
 				6855141128B8D2E100504714 /* Persistence.swift in Sources */,
 				6855140D28B8D2E100504714 /* timetayblApp.swift in Sources */,
 				6855140F28B8D2E100504714 /* ContentView.swift in Sources */,
@@ -328,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6855140C28B8D2E100504714 /* timetaybl.xcdatamodeld in Sources */,
+				4E4DF52E28C61ECB00B01433 /* CalendarApi.m in Sources */,
 				6855141228B8D2E100504714 /* Persistence.swift in Sources */,
 				6855140E28B8D2E100504714 /* timetayblApp.swift in Sources */,
 				6855141028B8D2E100504714 /* ContentView.swift in Sources */,
@@ -482,8 +494,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JZWQK4VJXC;
+				DEVELOPMENT_TEAM = SDW56WK6XR;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -494,8 +507,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Practice.timetaybl;
 				PRODUCT_NAME = timetaybl;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Shared/timetaybl (iOS)-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -504,8 +519,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JZWQK4VJXC;
+				DEVELOPMENT_TEAM = SDW56WK6XR;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -516,8 +532,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Practice.timetaybl;
 				PRODUCT_NAME = timetaybl;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Shared/timetaybl (iOS)-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -527,11 +544,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = JZWQK4VJXC;
+				DEVELOPMENT_TEAM = SDW56WK6XR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
@@ -543,6 +561,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Practice.timetaybl;
 				PRODUCT_NAME = timetaybl;
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/s0083611/Documents/timetaybl/timetaybl/Shared/Bridge.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -552,11 +572,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = JZWQK4VJXC;
+				DEVELOPMENT_TEAM = SDW56WK6XR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
@@ -568,6 +589,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Practice.timetaybl;
 				PRODUCT_NAME = timetaybl;
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/s0083611/Documents/timetaybl/timetaybl/Shared/Bridge.h;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
