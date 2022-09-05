@@ -67,15 +67,19 @@ import CoreData
 //}
 //
 
+
+
 struct Subject {
     var name: String
     var color: Color
     var room: String
+    var periods:[Int]
 }
+
 
 struct ContentView: View {
     @State private var subjects:[Subject] = []
-    let subj = [Subject(name: "English", color: Color.blue, room: "")]
+    let subj = [Subject(name: "", color: Color.gray, room: "", periods: [])]
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -90,6 +94,27 @@ struct ContentView: View {
                 Spacer()
             }
             
+        }
+    }
+}
+
+struct EditSubject: View {
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 25.0)
+                .opacity(0.8)
+                .border(Color.black)
+            HStack {
+                VStack {
+                    Text("Subject Name")
+                }
+                VStack {
+                    Text("Subject Color ")
+                }
+                VStack {
+                    Text("Room")
+                }
+            }
         }
     }
 }

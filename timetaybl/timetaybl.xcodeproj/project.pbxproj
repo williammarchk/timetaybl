@@ -561,7 +561,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Practice.timetaybl;
 				PRODUCT_NAME = timetaybl;
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/s0083611/Documents/timetaybl/timetaybl/Shared/Bridge.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Shared/Bridge.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -589,7 +589,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Practice.timetaybl;
 				PRODUCT_NAME = timetaybl;
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/s0083611/Documents/timetaybl/timetaybl/Shared/Bridge.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Shared/Bridge.h;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
