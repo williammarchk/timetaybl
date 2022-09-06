@@ -11,22 +11,19 @@
 #include "Universe.objc.h"
 
 
-@class GoogleapiTextReturner;
+@class GoogleapiGoogleDataLoader;
 
-/**
- * Greeter greets people.
- */
-@interface GoogleapiTextReturner : NSObject <goSeqRefInterface> {
+@interface GoogleapiGoogleDataLoader : NSObject <goSeqRefInterface> {
 }
 @property(strong, readonly) _Nonnull id _ref;
 
 - (nonnull instancetype)initWithRef:(_Nonnull id)ref;
 - (nonnull instancetype)init;
+- (NSString* _Nonnull)getAuthURLstring;
+- (void)getClient:(NSString* _Nullable)authCode;
+- (NSString* _Nonnull)getEvents;
 @end
 
-FOUNDATION_EXPORT GoogleapiTextReturner* _Nullable GoogleapiNewGreeter(NSString* _Nullable text);
-
-// skipped function ReturnText with unsupported parameter or return types
-
+FOUNDATION_EXPORT GoogleapiGoogleDataLoader* _Nullable GoogleapiNewDataLoader(NSString* _Nullable credentials);
 
 #endif
