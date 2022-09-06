@@ -8,6 +8,9 @@
 import SwiftUI
 import CoreData
 
+import GoogleApi
+
+
 //struct ContentView: View {
 //    @Environment(\.managedObjectContext) private var viewContext
 //
@@ -73,54 +76,49 @@ struct Subject {
     var name: String
     var color: Color
     var room: String
-    var periods: WeekandPeriod
+    var periods: [Int]
 }
 
-struct WeekandPeriod {
-    var week1:[Int]
-    var week2:[Int]
-}
 
 struct ContentView: View {
-    var objC: CalendarAPI = CalendarAPI()
+    var googleLoader = GoogleapiNewDataLoader("{\"installed\":{\"client_id\":\"184149248061-u0pqmh6q7gkheoffs3pelf111qhdaaqk.apps.googleusercontent.com\",\"project_id\":\"timetable-361614\",\"auth_uri\":\"https://accounts.google.com/o/oauth2/auth\",\"token_uri\":\"https://oauth2.googleapis.com/token\",\"auth_provider_x509_cert_url\":\"https://www.googleapis.com/oauth2/v1/certs\",\"client_secret\":\"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\",\"redirect_uris\":[\"urn:ietf:wg:oauth:2.0:oob\"]}}")
+    
     init() {
-        objC.someProperty = "Hello"
+        print(googleLoader?.getAuthURLstring())
     }
+    
     @State private var subjects:[Subject] = []
-    let subj = [Subject(name: "", color: Color.gray, room: "", periods: WeekandPeriod(week1: [], week2: []))]
+    
+    @State private var authCode: String = ""
+    
+    @State private var json: String = ""
+    
+    let subj = [Subject(name: "", color: Color.gray, room: "", periods: [])]
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
             VStack {
                 Spacer()
                 Text("Format Your Own Timetable!").font(.system(size: 20))
-                Text("Here are your subjects")
                 Spacer()
                 HStack{
                     Text("Add a Subject").font(.system(size: 12))
-                    Text("Add a Subject").font(.system(size: 12))
                 }
-                Text(objC.retreive()).font(.system(size: 20))
+                
+                TextField(
+                    "Enter Authorization Code",
+                    text: $authCode,
+                    onCommit: {
+                        googleLoader?.getClient(authCode)
+                        let events = googleLoader?.getEvents()
+                        self.json = events!
+                    }
+                )
+                
                 Spacer()
-            }
-            
-        }
-    }
-}
-
-struct SubjectView: View {
-    var color: Color
-    var name: String
-    var room: String
-    var teacher: String
-    var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 25.0)
-                .foregroundColor(color)
-            VStack {
-                Text(name)
-                Text(room)
-                Text(teacher)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .disableAutocorrection(true)
+                Text(json)
             }
         }
     }
