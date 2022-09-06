@@ -7,7 +7,9 @@
 
 import SwiftUI
 import CoreData
-import OAuth2
+
+import GoogleApi
+
 
 //struct ContentView: View {
 //    @Environment(\.managedObjectContext) private var viewContext
@@ -74,17 +76,23 @@ struct Subject {
     var name: String
     var color: Color
     var room: String
-    var periods:[Int]
+    var periods: [Int]
 }
 
 
 struct ContentView: View {
+    var googleLoader = GoogleapiNewDataLoader("{\"installed\":{\"client_id\":\"184149248061-u0pqmh6q7gkheoffs3pelf111qhdaaqk.apps.googleusercontent.com\",\"project_id\":\"timetable-361614\",\"auth_uri\":\"https://accounts.google.com/o/oauth2/auth\",\"token_uri\":\"https://oauth2.googleapis.com/token\",\"auth_provider_x509_cert_url\":\"https://www.googleapis.com/oauth2/v1/certs\",\"client_secret\":\"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\",\"redirect_uris\":[\"urn:ietf:wg:oauth:2.0:oob\"]}}")
+    
     init() {
-        print(GoogleLoader().attemptToAuthorize(callback: { (_: OAuth2JSON?, _: OAuth2Error?) -> Void in
-            ()
-        }))
+        print(googleLoader?.getAuthURLstring())
     }
+    
     @State private var subjects:[Subject] = []
+    
+    @State private var authCode: String = ""
+    
+    @State private var json: String = ""
+    
     let subj = [Subject(name: "", color: Color.gray, room: "", periods: [])]
     var body: some View {
         ZStack {
@@ -95,11 +103,23 @@ struct ContentView: View {
                 Spacer()
                 HStack{
                     Text("Add a Subject").font(.system(size: 12))
-                    Text("Add a Subject").font(.system(size: 12))
                 }
+                
+                TextField(
+                    "Enter Authorization Code",
+                    text: $authCode,
+                    onCommit: {
+                        googleLoader?.getClient(authCode)
+                        let events = googleLoader?.getEvents()
+                        self.json = events!
+                    }
+                )
+                
                 Spacer()
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .disableAutocorrection(true)
+                Text(json)
             }
-            
         }
     }
 }

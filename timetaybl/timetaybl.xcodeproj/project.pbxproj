@@ -7,37 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E69E2BF28C67B89008C2DC6 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E69E2BE28C67B89008C2DC6 /* DataLoader.swift */; };
-		4E69E2C028C67B89008C2DC6 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E69E2BE28C67B89008C2DC6 /* DataLoader.swift */; };
-		4EEB222C28C649EE00705C94 /* client_secret_184149248061-u0pqmh6q7gkheoffs3pelf111qhdaaqk.apps.googleusercontent.com.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EEB222B28C649EE00705C94 /* client_secret_184149248061-u0pqmh6q7gkheoffs3pelf111qhdaaqk.apps.googleusercontent.com.json */; };
-		4EEB222D28C649EE00705C94 /* client_secret_184149248061-u0pqmh6q7gkheoffs3pelf111qhdaaqk.apps.googleusercontent.com.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EEB222B28C649EE00705C94 /* client_secret_184149248061-u0pqmh6q7gkheoffs3pelf111qhdaaqk.apps.googleusercontent.com.json */; };
-		4EEB222F28C665FC00705C94 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB222E28C665FC00705C94 /* Auth.swift */; };
-		4EEB223028C665FC00705C94 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB222E28C665FC00705C94 /* Auth.swift */; };
-		4EEB223228C6660B00705C94 /* JSONProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB223128C6660B00705C94 /* JSONProcessing.swift */; };
-		4EEB223328C6660B00705C94 /* JSONProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB223128C6660B00705C94 /* JSONProcessing.swift */; };
-		4EEB223628C6671900705C94 /* OAuth2 in Frameworks */ = {isa = PBXBuildFile; productRef = 4EEB223528C6671900705C94 /* OAuth2 */; };
-		685513FE28B8D2E100504714 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685513FD28B8D2E100504714 /* Tests_iOS.swift */; };
+		4E820DD628C7DC9900531079 /* GoogleApi.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E82F9A028C7BEE900B1A6C9 /* GoogleApi.xcframework */; };
+		4E820DD728C7DC9900531079 /* GoogleApi.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E82F9A028C7BEE900B1A6C9 /* GoogleApi.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6855140928B8D2E100504714 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6855140828B8D2E100504714 /* Tests_macOS.swift */; };
-		6855140B28B8D2E100504714 /* timetaybl.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 685513DF28B8D2DF00504714 /* timetaybl.xcdatamodeld */; };
 		6855140C28B8D2E100504714 /* timetaybl.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 685513DF28B8D2DF00504714 /* timetaybl.xcdatamodeld */; };
-		6855140D28B8D2E100504714 /* timetayblApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685513E128B8D2DF00504714 /* timetayblApp.swift */; };
 		6855140E28B8D2E100504714 /* timetayblApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685513E128B8D2DF00504714 /* timetayblApp.swift */; };
-		6855140F28B8D2E100504714 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685513E228B8D2DF00504714 /* ContentView.swift */; };
 		6855141028B8D2E100504714 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685513E228B8D2DF00504714 /* ContentView.swift */; };
-		6855141128B8D2E100504714 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685513E328B8D2DF00504714 /* Persistence.swift */; };
 		6855141228B8D2E100504714 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685513E328B8D2DF00504714 /* Persistence.swift */; };
-		6855141328B8D2E100504714 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 685513E428B8D2E100504714 /* Assets.xcassets */; };
 		6855141428B8D2E100504714 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 685513E428B8D2E100504714 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		685513FA28B8D2E100504714 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 685513DA28B8D2DF00504714 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 685513E828B8D2E100504714;
-			remoteInfo = "timetaybl (iOS)";
-		};
 		6855140528B8D2E100504714 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 685513DA28B8D2DF00504714 /* Project object */;
@@ -47,22 +27,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4E820DD828C7DC9900531079 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4E820DD728C7DC9900531079 /* GoogleApi.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		4E69E2BE28C67B89008C2DC6 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
-		4EEB222B28C649EE00705C94 /* client_secret_184149248061-u0pqmh6q7gkheoffs3pelf111qhdaaqk.apps.googleusercontent.com.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "client_secret_184149248061-u0pqmh6q7gkheoffs3pelf111qhdaaqk.apps.googleusercontent.com.json"; sourceTree = "<group>"; };
-		4EEB222E28C665FC00705C94 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
-		4EEB223128C6660B00705C94 /* JSONProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONProcessing.swift; sourceTree = "<group>"; };
+		4E82F9A028C7BEE900B1A6C9 /* GoogleApi.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleApi.xcframework; path = frameworks/GoogleApi.xcframework; sourceTree = "<group>"; };
 		685513E028B8D2DF00504714 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		685513E128B8D2DF00504714 /* timetayblApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timetayblApp.swift; sourceTree = "<group>"; };
 		685513E228B8D2DF00504714 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		685513E328B8D2DF00504714 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		685513E428B8D2E100504714 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		685513E928B8D2E100504714 /* timetaybl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timetaybl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		685513EC28B8D2E100504714 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		685513F128B8D2E100504714 /* timetaybl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timetaybl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		685513F328B8D2E100504714 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		685513F428B8D2E100504714 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		685513F928B8D2E100504714 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		685513FD28B8D2E100504714 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
 		685513FF28B8D2E100504714 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6855140428B8D2E100504714 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,25 +60,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		685513E628B8D2E100504714 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		685513EE28B8D2E100504714 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EEB223628C6671900705C94 /* OAuth2 in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		685513F628B8D2E100504714 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				4E820DD628C7DC9900531079 /* GoogleApi.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,26 +78,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4EEB222A28C649B500705C94 /* Api */ = {
+		4E48646F28C7820500D04785 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4EEB222B28C649EE00705C94 /* client_secret_184149248061-u0pqmh6q7gkheoffs3pelf111qhdaaqk.apps.googleusercontent.com.json */,
-				4EEB222E28C665FC00705C94 /* Auth.swift */,
-				4E69E2BE28C67B89008C2DC6 /* DataLoader.swift */,
-				4EEB223128C6660B00705C94 /* JSONProcessing.swift */,
 			);
-			path = Api;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		685513D928B8D2DF00504714 = {
 			isa = PBXGroup;
 			children = (
+				4E82F9A028C7BEE900B1A6C9 /* GoogleApi.xcframework */,
 				685513DE28B8D2DF00504714 /* Shared */,
 				685513EB28B8D2E100504714 /* iOS */,
 				685513F228B8D2E100504714 /* macOS */,
 				685513FC28B8D2E100504714 /* Tests iOS */,
 				6855140728B8D2E100504714 /* Tests macOS */,
 				685513EA28B8D2E100504714 /* Products */,
+				4E48646F28C7820500D04785 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,7 +104,6 @@
 			children = (
 				685513E128B8D2DF00504714 /* timetayblApp.swift */,
 				685513E228B8D2DF00504714 /* ContentView.swift */,
-				4EEB222A28C649B500705C94 /* Api */,
 				685513E328B8D2DF00504714 /* Persistence.swift */,
 				685513E428B8D2E100504714 /* Assets.xcassets */,
 				685513DF28B8D2DF00504714 /* timetaybl.xcdatamodeld */,
@@ -142,9 +114,7 @@
 		685513EA28B8D2E100504714 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				685513E928B8D2E100504714 /* timetaybl.app */,
 				685513F128B8D2E100504714 /* timetaybl.app */,
-				685513F928B8D2E100504714 /* Tests iOS.xctest */,
 				6855140428B8D2E100504714 /* Tests macOS.xctest */,
 			);
 			name = Products;
@@ -188,23 +158,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		685513E828B8D2E100504714 /* timetaybl (iOS) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6855141728B8D2E100504714 /* Build configuration list for PBXNativeTarget "timetaybl (iOS)" */;
-			buildPhases = (
-				685513E528B8D2E100504714 /* Sources */,
-				685513E628B8D2E100504714 /* Frameworks */,
-				685513E728B8D2E100504714 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "timetaybl (iOS)";
-			productName = "timetaybl (iOS)";
-			productReference = 685513E928B8D2E100504714 /* timetaybl.app */;
-			productType = "com.apple.product-type.application";
-		};
 		685513F028B8D2E100504714 /* timetaybl (macOS) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6855141A28B8D2E100504714 /* Build configuration list for PBXNativeTarget "timetaybl (macOS)" */;
@@ -212,6 +165,7 @@
 				685513ED28B8D2E100504714 /* Sources */,
 				685513EE28B8D2E100504714 /* Frameworks */,
 				685513EF28B8D2E100504714 /* Resources */,
+				4E820DD828C7DC9900531079 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -219,29 +173,10 @@
 			);
 			name = "timetaybl (macOS)";
 			packageProductDependencies = (
-				4EEB223528C6671900705C94 /* OAuth2 */,
 			);
 			productName = "timetaybl (macOS)";
 			productReference = 685513F128B8D2E100504714 /* timetaybl.app */;
 			productType = "com.apple.product-type.application";
-		};
-		685513F828B8D2E100504714 /* Tests iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6855141D28B8D2E100504714 /* Build configuration list for PBXNativeTarget "Tests iOS" */;
-			buildPhases = (
-				685513F528B8D2E100504714 /* Sources */,
-				685513F628B8D2E100504714 /* Frameworks */,
-				685513F728B8D2E100504714 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				685513FB28B8D2E100504714 /* PBXTargetDependency */,
-			);
-			name = "Tests iOS";
-			productName = "Tests iOS";
-			productReference = 685513F928B8D2E100504714 /* Tests iOS.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		6855140328B8D2E100504714 /* Tests macOS */ = {
 			isa = PBXNativeTarget;
@@ -270,17 +205,9 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
-					685513E828B8D2E100504714 = {
-						CreatedOnToolsVersion = 12.5.1;
-						LastSwiftMigration = 1250;
-					};
 					685513F028B8D2E100504714 = {
 						CreatedOnToolsVersion = 12.5.1;
 						LastSwiftMigration = 1250;
-					};
-					685513F828B8D2E100504714 = {
-						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = 685513E828B8D2E100504714;
 					};
 					6855140328B8D2E100504714 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -304,37 +231,18 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				685513E828B8D2E100504714 /* timetaybl (iOS) */,
 				685513F028B8D2E100504714 /* timetaybl (macOS) */,
-				685513F828B8D2E100504714 /* Tests iOS */,
 				6855140328B8D2E100504714 /* Tests macOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		685513E728B8D2E100504714 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6855141328B8D2E100504714 /* Assets.xcassets in Resources */,
-				4EEB222C28C649EE00705C94 /* client_secret_184149248061-u0pqmh6q7gkheoffs3pelf111qhdaaqk.apps.googleusercontent.com.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		685513EF28B8D2E100504714 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				6855141428B8D2E100504714 /* Assets.xcassets in Resources */,
-				4EEB222D28C649EE00705C94 /* client_secret_184149248061-u0pqmh6q7gkheoffs3pelf111qhdaaqk.apps.googleusercontent.com.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		685513F728B8D2E100504714 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,39 +256,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		685513E528B8D2E100504714 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6855140B28B8D2E100504714 /* timetaybl.xcdatamodeld in Sources */,
-				4EEB222F28C665FC00705C94 /* Auth.swift in Sources */,
-				4E69E2BF28C67B89008C2DC6 /* DataLoader.swift in Sources */,
-				6855141128B8D2E100504714 /* Persistence.swift in Sources */,
-				6855140D28B8D2E100504714 /* timetayblApp.swift in Sources */,
-				4EEB223228C6660B00705C94 /* JSONProcessing.swift in Sources */,
-				6855140F28B8D2E100504714 /* ContentView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		685513ED28B8D2E100504714 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				6855140C28B8D2E100504714 /* timetaybl.xcdatamodeld in Sources */,
-				4EEB223028C665FC00705C94 /* Auth.swift in Sources */,
-				4E69E2C028C67B89008C2DC6 /* DataLoader.swift in Sources */,
 				6855141228B8D2E100504714 /* Persistence.swift in Sources */,
 				6855140E28B8D2E100504714 /* timetayblApp.swift in Sources */,
-				4EEB223328C6660B00705C94 /* JSONProcessing.swift in Sources */,
 				6855141028B8D2E100504714 /* ContentView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		685513F528B8D2E100504714 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				685513FE28B8D2E100504714 /* Tests_iOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,11 +278,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		685513FB28B8D2E100504714 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 685513E828B8D2E100504714 /* timetaybl (iOS) */;
-			targetProxy = 685513FA28B8D2E100504714 /* PBXContainerItemProxy */;
-		};
 		6855140628B8D2E100504714 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 685513F028B8D2E100504714 /* timetaybl (macOS) */;
@@ -462,6 +340,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "--deep";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -514,58 +393,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "--deep";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-			};
-			name = Release;
-		};
-		6855141828B8D2E100504714 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SDW56WK6XR;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = Practice.timetaybl;
-				PRODUCT_NAME = timetaybl;
-				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "Shared/timetaybl (iOS)-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
-			};
-			name = Debug;
-		};
-		6855141928B8D2E100504714 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SDW56WK6XR;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = Practice.timetaybl;
-				PRODUCT_NAME = timetaybl;
-				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "Shared/timetaybl (iOS)-Bridging-Header.h";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -576,9 +406,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = SDW56WK6XR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -590,6 +421,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Practice.timetaybl;
 				PRODUCT_NAME = timetaybl;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -603,9 +435,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = SDW56WK6XR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -617,53 +450,9 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Practice.timetaybl;
 				PRODUCT_NAME = timetaybl;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		6855141E28B8D2E100504714 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JZWQK4VJXC;
-				INFOPLIST_FILE = "Tests iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Practice.Tests-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "timetaybl (iOS)";
-			};
-			name = Debug;
-		};
-		6855141F28B8D2E100504714 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JZWQK4VJXC;
-				INFOPLIST_FILE = "Tests iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Practice.Tests-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "timetaybl (iOS)";
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -723,29 +512,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6855141728B8D2E100504714 /* Build configuration list for PBXNativeTarget "timetaybl (iOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6855141828B8D2E100504714 /* Debug */,
-				6855141928B8D2E100504714 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		6855141A28B8D2E100504714 /* Build configuration list for PBXNativeTarget "timetaybl (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6855141B28B8D2E100504714 /* Debug */,
 				6855141C28B8D2E100504714 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6855141D28B8D2E100504714 /* Build configuration list for PBXNativeTarget "Tests iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6855141E28B8D2E100504714 /* Debug */,
-				6855141F28B8D2E100504714 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -771,14 +542,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		4EEB223528C6671900705C94 /* OAuth2 */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4EEB223428C6671900705C94 /* XCRemoteSwiftPackageReference "OAuth2" */;
-			productName = OAuth2;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		685513DF28B8D2DF00504714 /* timetaybl.xcdatamodeld */ = {
