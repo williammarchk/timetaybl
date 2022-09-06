@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E6916C228C7E82500D8F120 /* GoogleApi.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E6916C128C7E82500D8F120 /* GoogleApi.xcframework */; };
+		4E6916C328C7E8CE00D8F120 /* GoogleApi.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E6916C128C7E82500D8F120 /* GoogleApi.xcframework */; };
+		4E6916C428C7E8CE00D8F120 /* GoogleApi.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E6916C128C7E82500D8F120 /* GoogleApi.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6855140928B8D2E100504714 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6855140828B8D2E100504714 /* Tests_macOS.swift */; };
 		6855140C28B8D2E100504714 /* timetaybl.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 685513DF28B8D2DF00504714 /* timetaybl.xcdatamodeld */; };
 		6855140E28B8D2E100504714 /* timetayblApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685513E128B8D2DF00504714 /* timetayblApp.swift */; };
@@ -33,6 +34,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4E6916C428C7E8CE00D8F120 /* GoogleApi.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E6916C228C7E82500D8F120 /* GoogleApi.xcframework in Frameworks */,
+				4E6916C328C7E8CE00D8F120 /* GoogleApi.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
