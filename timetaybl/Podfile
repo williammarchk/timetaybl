@@ -1,9 +1,0 @@
-target 'timetaybl (iOS)' do
-  use_frameworks!
-  pod 'GoogleAPIClientForREST', '~> 2.0'
-end
-
-target 'timetaybl (macOS)' do
-  use_frameworks!
-  pod 'GoogleAPIClientForREST', '~> 2.0'
-end
