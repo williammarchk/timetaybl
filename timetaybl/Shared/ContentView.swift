@@ -85,51 +85,51 @@ struct ContentView: View {
         authURL = tmp!
     }
     
-    @State private var subjects:[Subject] = []
+    @State private var timetable: TimeTable = []
     
     @State private var authCode: String = ""
-    
-    @State private var json: String = ""
     
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
-            VStack {
-                Spacer()
-                Text("Format Your Own Timetable!").font(.system(size: 20))
-                Spacer()
-                HStack{
-                    Text("Add a Subject").font(.system(size: 12))
-                }
-                
-                Button(action: {
-                    if let url = URL(string: authURL) {
-                        NSWorkspace.shared.open(url)
+            ScrollView(.vertical) {
+                VStack {
+                    Spacer()
+                    Text("Format Your Own Timetable!").font(.system(size: 24))
+                    Spacer()
+                    Button(action: {
+                        if let url = URL(string: authURL) {
+                            NSWorkspace.shared.open(url)
+                        }
+                    }) {
+                        Text("Sign in with Google")
                     }
-                }) {
-                    Text("Sign in with Google")
-                }
-                
-                TextField(
-                    "Enter Authorization Code",
-                    text: $authCode,
-                    onCommit: {
-                        googleLoader?.getClient(authCode)
-                        let events = googleLoader?.getEvents()
-                        self.json = events!
-                        // print(events!)
-                        parseJSON(json: events!)
+                    
+                    TextField(
+                        "Enter Authorization Code",
+                        text: $authCode,
+                        onCommit: {
+                            googleLoader?.getClient(authCode)
+                            let events = googleLoader?.getEvents()
+                            // print(events!)
+                            timetable = parseJSON(json: events!)
+                        }
+                    )
+                    
+                    Spacer()
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .disableAutocorrection(true)
+                    Spacer()
+                    ForEach(timetable, id: \.self) {subject in 
+                        Text(subject.name)
                     }
-                )
-                
-                Spacer()
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .disableAutocorrection(true)
-                Text(json)
+                }
             }
         }
     }
 }
+                    
+            
 
 struct EditSubject: View {
     var body: some View {

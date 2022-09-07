@@ -8,29 +8,27 @@
 import Foundation
 import SwiftUI
 
-struct Timetable {
-    var subjects: [Subject]
-}
+typealias TimeTable = [Subject]
 
-struct Subject {
+struct Subject : Hashable {
     var name: String
     var color: Color
     var lessons: [Lesson]
 }
 
-struct Lesson {
+struct Lesson : Hashable {
     var day: Day
     var startTime: TimeOfDay
     var endTime: TimeOfDay
     var room: String
 }
 
-struct TimeOfDay {
-    var hourNumber: Int // From 0 to 23
-    var minuteNumber: Int // From 0 to 60
+struct TimeOfDay : Hashable {
+    var hour: Int // From 0 to 23
+    var minute: Int // From 0 to 59
 }
 
-struct Day {
-    var isWeekTwo: Bool
-    var day: Int // From 1 to 7
+struct Day : Hashable {
+    var week: Int // 1 or 2
+    var day: Int // From 0 to 4, Monday to Friday
 }

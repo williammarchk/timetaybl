@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct APIElement: Codable {
     let subjectName, location: String
@@ -26,10 +27,48 @@ struct APIElement: Codable {
 
 typealias API = [APIElement]
 
-func parseJSON(json: String) -> Timetable {
-    var decodedJSON = try? JSONDecoder().decode(API.self, from: json.data(using: .utf8)!)
+func parseJSON(json: String) -> TimeTable {
+    let decodedJSON = try? JSONDecoder().decode(API.self, from: json.data(using: .utf8)!)
     
-    print(decodedJSON)
+    var subjects: [Subject] = []
     
-    return Timetable(subjects: [])
+    for jsonLesson in decodedJSON! {
+        var existingSubject: Bool = false
+        var subjectIndex = 0
+        
+        for (i, subject) in subjects.enumerated() {
+            if jsonLesson.subjectName == subject.name {
+                existingSubject = true
+                subjectIndex = i
+            }
+        }
+        
+        let lesson = Lesson(
+            day: Day(
+                week: jsonLesson.week,
+                day: jsonLesson.day
+            ),
+            startTime: TimeOfDay(
+                hour: jsonLesson.startHour,
+                minute: jsonLesson.startMinute
+            ),
+            endTime: TimeOfDay(
+                hour: jsonLesson.endHour,
+                minute: jsonLesson.endMinute
+            ),
+            room: jsonLesson.location
+        )
+        
+        if !existingSubject {
+            subjects.append(Subject(name: jsonLesson.subjectName, color: Color(white: 1), lessons: [lesson]))
+        } else {
+            subjects[subjectIndex].lessons.append(lesson)
+        }
+    }
+
+    for subject in subjects {
+        print(subject.name)
+    }
+    
+    return subjects
 }

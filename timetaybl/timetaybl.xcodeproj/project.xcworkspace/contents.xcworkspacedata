@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../frameworks/GoogleApi.xcframework">
-   </FileRef>
-   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>
