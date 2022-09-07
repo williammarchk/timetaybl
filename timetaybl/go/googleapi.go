@@ -6,7 +6,6 @@ import (
 	"context"
 	"fmt"
 	"net/http"
-	"time"
 
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
@@ -15,10 +14,10 @@ import (
 )
 
 type GoogleDataLoader struct {
-	authenticated bool
-	client        *http.Client
-	service       *calendar.Service
-	config        *oauth2.Config
+	hasError bool
+	client   *http.Client
+	service  *calendar.Service
+	config   *oauth2.Config
 }
 
 func NewDataLoader(credentials string) *GoogleDataLoader {
@@ -39,6 +38,8 @@ func (loader *GoogleDataLoader) GetClient(authCode string) {
 	var token, err = loader.config.Exchange(context.TODO(), authCode)
 
 	if err != nil {
+		loader.hasError = true
+
 		fmt.Println("Error in exchanging token")
 	}
 
@@ -46,20 +47,26 @@ func (loader *GoogleDataLoader) GetClient(authCode string) {
 	service, err := calendar.NewService(context.Background(), option.WithHTTPClient(loader.client))
 
 	if err != nil {
-		fmt.Println("Error getting Calendar API service")
+		loader.hasError = true
 
-		loader.authenticated = true
+		fmt.Println("Error getting Calendar API service")
 	}
 
 	loader.service = service
 }
 
 func (loader *GoogleDataLoader) GetEvents() string {
-	t := time.Now().Format(time.RFC3339)
+	events, err := loader.service.Events.List("primary").SingleEvents(true).TimeMin("2022-08-29T00:00:00Z").TimeMax("2022-09-09T22:00:00Z").OrderBy("startTime").Do()
 
-	events, _ := loader.service.Events.List("primary").SingleEvents(true).TimeMin(t).OrderBy("startTime").Do()
+	if err != nil {
+		loader.hasError = true
+	}
 
-	json, _ := events.MarshalJSON()
+	json, err := events.MarshalJSON()
+
+	if err != nil {
+		loader.hasError = true
+	}
 
 	return string(json)
 }

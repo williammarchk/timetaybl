@@ -72,12 +72,6 @@ import GoogleApi
 
 
 
-struct Subject {
-    var name: String
-    var color: Color
-    var room: String
-    var periods: [Int]
-}
 
 
 struct ContentView: View {
@@ -93,7 +87,6 @@ struct ContentView: View {
     
     @State private var json: String = ""
     
-    let subj = [Subject(name: "", color: Color.gray, room: "", periods: [])]
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)

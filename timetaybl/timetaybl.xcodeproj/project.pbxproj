@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E6916C328C7E8CE00D8F120 /* GoogleApi.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E6916C128C7E82500D8F120 /* GoogleApi.xcframework */; };
-		4E6916C428C7E8CE00D8F120 /* GoogleApi.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E6916C128C7E82500D8F120 /* GoogleApi.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4EBEE3C128C8723000857392 /* PdfGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBEE3C028C8723000857392 /* PdfGen.swift */; };
+		4EBEE3C328C8818100857392 /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBEE3C228C8818100857392 /* TimeTable.swift */; };
+		4EBEE3C528C8964E00857392 /* GoogleApi.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBEE3C428C8964E00857392 /* GoogleApi.xcframework */; };
 		6855140928B8D2E100504714 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6855140828B8D2E100504714 /* Tests_macOS.swift */; };
 		6855140C28B8D2E100504714 /* timetaybl.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 685513DF28B8D2DF00504714 /* timetaybl.xcdatamodeld */; };
 		6855140E28B8D2E100504714 /* timetayblApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685513E128B8D2DF00504714 /* timetayblApp.swift */; };
@@ -34,7 +35,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4E6916C428C7E8CE00D8F120 /* GoogleApi.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -42,7 +42,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4E6916C128C7E82500D8F120 /* GoogleApi.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleApi.xcframework; sourceTree = "<group>"; };
+		4EBEE3C028C8723000857392 /* PdfGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfGen.swift; sourceTree = "<group>"; };
+		4EBEE3C228C8818100857392 /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
+		4EBEE3C428C8964E00857392 /* GoogleApi.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleApi.xcframework; path = frameworks/GoogleApi.xcframework; sourceTree = "<group>"; };
 		685513E028B8D2DF00504714 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		685513E128B8D2DF00504714 /* timetayblApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timetayblApp.swift; sourceTree = "<group>"; };
 		685513E228B8D2DF00504714 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E6916C328C7E8CE00D8F120 /* GoogleApi.xcframework in Frameworks */,
+				4EBEE3C528C8964E00857392 /* GoogleApi.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4EBEE3BF28C8721800857392 /* PDF */ = {
+			isa = PBXGroup;
+			children = (
+				4EBEE3C028C8723000857392 /* PdfGen.swift */,
+			);
+			path = PDF;
+			sourceTree = "<group>";
+		};
 		685513D928B8D2DF00504714 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +101,8 @@
 			children = (
 				685513E128B8D2DF00504714 /* timetayblApp.swift */,
 				685513E228B8D2DF00504714 /* ContentView.swift */,
+				4EBEE3C228C8818100857392 /* TimeTable.swift */,
+				4EBEE3BF28C8721800857392 /* PDF */,
 				685513E328B8D2DF00504714 /* Persistence.swift */,
 				685513E428B8D2E100504714 /* Assets.xcassets */,
 				685513DF28B8D2DF00504714 /* timetaybl.xcdatamodeld */,
@@ -128,7 +140,7 @@
 		9691453DBA125474799502DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4E6916C128C7E82500D8F120 /* GoogleApi.xcframework */,
+				4EBEE3C428C8964E00857392 /* GoogleApi.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -234,7 +246,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6855140C28B8D2E100504714 /* timetaybl.xcdatamodeld in Sources */,
+				4EBEE3C328C8818100857392 /* TimeTable.swift in Sources */,
 				6855141228B8D2E100504714 /* Persistence.swift in Sources */,
+				4EBEE3C128C8723000857392 /* PdfGen.swift in Sources */,
 				6855140E28B8D2E100504714 /* timetayblApp.swift in Sources */,
 				6855141028B8D2E100504714 /* ContentView.swift in Sources */,
 			);
