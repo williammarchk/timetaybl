@@ -1,8 +1,0 @@
-framework module "GoogleApi" {
-	header "ref.h"
-    header "Googleapi.objc.h"
-    header "Universe.objc.h"
-    header "GoogleApi.h"
-
-    export *
-}

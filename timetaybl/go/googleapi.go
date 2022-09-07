@@ -97,7 +97,7 @@ func (loader *GoogleDataLoader) GetEvents() string {
 		new_item.EndMinute = endTime.Local().Minute()
 
 		// Check if generated from ISAMS and not lunch
-		if strings.Contains(s.Description, "Generated from isams") && !strings.Contains(s.Summary, "Lunch") {
+		if strings.Contains(s.Description, "Generated from isams") {
 			result = append(result, &new_item)
 		}
 	}
