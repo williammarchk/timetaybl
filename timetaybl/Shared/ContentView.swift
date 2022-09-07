@@ -105,6 +105,8 @@ struct ContentView: View {
                         googleLoader?.getClient(authCode)
                         let events = googleLoader?.getEvents()
                         self.json = events!
+                        // print(events!)
+                        parseJSON(json: events!)
                     }
                 )
                 

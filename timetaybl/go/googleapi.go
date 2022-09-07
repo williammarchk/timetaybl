@@ -4,8 +4,11 @@ package googleapi
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"net/http"
+	"strings"
+	"time"
 
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
@@ -56,17 +59,65 @@ func (loader *GoogleDataLoader) GetClient(authCode string) {
 }
 
 func (loader *GoogleDataLoader) GetEvents() string {
-	events, err := loader.service.Events.List("primary").SingleEvents(true).TimeMin("2022-08-29T00:00:00Z").TimeMax("2022-09-09T22:00:00Z").OrderBy("startTime").Do()
+	events, err := loader.service.Events.List("primary").SingleEvents(true).TimeMin("2022-09-12T00:00:00Z").TimeMax("2022-09-24T22:00:00Z").OrderBy("startTime").Do()
 
 	if err != nil {
 		loader.hasError = true
 	}
 
-	json, err := events.MarshalJSON()
+	startOfCycle, _ := time.Parse(time.RFC3339, "2022-09-12T00:00:00+02:00")
+
+	items := events.Items
+
+	result := make([]*Lesson, 0)
+
+	for _, s := range items {
+		new_item := Lesson{}
+
+		startTime, _ := time.Parse(time.RFC3339, s.Start.DateTime)
+		endTime, _ := time.Parse(time.RFC3339, s.End.DateTime)
+
+		dayOfCycle := startTime.Local().Day() - startOfCycle.Local().Day()
+
+		new_item.SubjectName = s.Summary
+		new_item.Location = s.Location
+
+		if dayOfCycle < 6 {
+			new_item.Day = dayOfCycle
+			new_item.Week = 1
+		} else {
+			new_item.Day = dayOfCycle - 7
+			new_item.Week = 2
+		}
+
+		new_item.StartHour = startTime.Local().Hour()
+		new_item.StartMinute = startTime.Local().Minute()
+
+		new_item.EndHour = endTime.Local().Hour()
+		new_item.EndMinute = endTime.Local().Minute()
+
+		// Check if generated from ISAMS and not lunch
+		if strings.Contains(s.Description, "Generated from isams") && !strings.Contains(s.Summary, "Lunch") {
+			result = append(result, &new_item)
+		}
+	}
+
+	json, err := json.Marshal(result)
 
 	if err != nil {
 		loader.hasError = true
 	}
 
 	return string(json)
+}
+
+type Lesson struct {
+	SubjectName string
+	Location    string
+	Week        int
+	Day         int
+	StartHour   int
+	EndHour     int
+	StartMinute int
+	EndMinute   int
 }

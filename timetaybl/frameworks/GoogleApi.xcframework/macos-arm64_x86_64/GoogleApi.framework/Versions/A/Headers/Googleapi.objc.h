@@ -12,6 +12,7 @@
 
 
 @class GoogleapiGoogleDataLoader;
+@class GoogleapiLesson;
 
 @interface GoogleapiGoogleDataLoader : NSObject <goSeqRefInterface> {
 }
@@ -22,6 +23,22 @@
 - (NSString* _Nonnull)getAuthURLstring;
 - (void)getClient:(NSString* _Nullable)authCode;
 - (NSString* _Nonnull)getEvents;
+@end
+
+@interface GoogleapiLesson : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+@property (nonatomic) NSString* _Nonnull subjectName;
+@property (nonatomic) NSString* _Nonnull location;
+@property (nonatomic) long week;
+@property (nonatomic) long day;
+@property (nonatomic) long startHour;
+@property (nonatomic) long endHour;
+@property (nonatomic) long startMinute;
+@property (nonatomic) long endMinute;
 @end
 
 FOUNDATION_EXPORT GoogleapiGoogleDataLoader* _Nullable GoogleapiNewDataLoader(NSString* _Nullable credentials);
