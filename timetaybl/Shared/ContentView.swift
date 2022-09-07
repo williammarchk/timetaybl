@@ -77,8 +77,12 @@ import GoogleApi
 struct ContentView: View {
     var googleLoader = GoogleapiNewDataLoader("{\"installed\":{\"client_id\":\"184149248061-u0pqmh6q7gkheoffs3pelf111qhdaaqk.apps.googleusercontent.com\",\"project_id\":\"timetable-361614\",\"auth_uri\":\"https://accounts.google.com/o/oauth2/auth\",\"token_uri\":\"https://oauth2.googleapis.com/token\",\"auth_provider_x509_cert_url\":\"https://www.googleapis.com/oauth2/v1/certs\",\"client_secret\":\"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\",\"redirect_uris\":[\"urn:ietf:wg:oauth:2.0:oob\"]}}")
     
+    let authURL: String
+    
     init() {
-        print(googleLoader?.getAuthURLstring())
+        let tmp = googleLoader?.getAuthURLstring()
+        
+        authURL = tmp!
     }
     
     @State private var subjects:[Subject] = []
@@ -96,6 +100,14 @@ struct ContentView: View {
                 Spacer()
                 HStack{
                     Text("Add a Subject").font(.system(size: 12))
+                }
+                
+                Button(action: {
+                    if let url = URL(string: authURL) {
+                        NSWorkspace.shared.open(url)
+                    }
+                }) {
+                    Text("Sign in with Google")
                 }
                 
                 TextField(
