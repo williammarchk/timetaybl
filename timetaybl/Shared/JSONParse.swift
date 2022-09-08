@@ -10,8 +10,9 @@ import SwiftUI
 
 struct APIElement: Codable {
     let subjectName, location: String
-    let week, day, startHour, endHour: Int
-    let startMinute, endMinute: Int
+    let week, day: Int
+    var startHour, endHour: Int
+    var startMinute, endMinute: Int
 
     enum CodingKeys: String, CodingKey {
         case subjectName = "SubjectName"
@@ -30,9 +31,30 @@ typealias API = [APIElement]
 func parseJSON(json: String) -> TimeTable {
     let decodedJSON = try? JSONDecoder().decode(API.self, from: json.data(using: .utf8)!)
     
+    var unwrappedJSON = decodedJSON!
+    
     var subjects: [Subject] = []
     
-    for jsonLesson in decodedJSON! {
+    var i = 0
+    while i + 1 < unwrappedJSON.count {
+        let thisLesson = unwrappedJSON[i]
+        let nextLesson = unwrappedJSON[i + 1]
+        
+        // Check if double
+        if  thisLesson.endHour == nextLesson.startHour &&
+            thisLesson.endMinute == (nextLesson.startMinute - 5) &&
+            thisLesson.subjectName == nextLesson.subjectName
+        {
+            unwrappedJSON[i].endHour = nextLesson.endHour
+            unwrappedJSON[i].endMinute = nextLesson.endMinute
+            
+            unwrappedJSON.remove(at: i + 1)
+        }
+        
+        i += 1
+    }
+    
+    for jsonLesson in unwrappedJSON {
         var existingSubject: Bool = false
         var subjectIndex = 0
         

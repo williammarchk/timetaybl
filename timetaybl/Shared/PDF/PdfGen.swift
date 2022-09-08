@@ -65,10 +65,6 @@ func drawOnPdf(emptyPdf: Data, timetable: TimeTable) -> Data {
             }; gc.restoreGState()
         }
 
-        
-
-        
-
     }; gc.endPDFPage()
     NSGraphicsContext.current = nil
     gc.closePDF()
