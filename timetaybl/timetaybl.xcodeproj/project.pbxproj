@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4EB8462428C9445E00EB77B7 /* GoogleApi.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EB8462328C9445E00EB77B7 /* GoogleApi.xcframework */; };
+		4EB8462528C944E400EB77B7 /* GoogleApi.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EB8462328C9445E00EB77B7 /* GoogleApi.xcframework */; };
+		4EB8462628C944E400EB77B7 /* GoogleApi.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4EB8462328C9445E00EB77B7 /* GoogleApi.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4EB8462828C94C8100EB77B7 /* empty.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4EB8462728C94C8100EB77B7 /* empty.pdf */; };
 		4EBEE3C128C8723000857392 /* PdfGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBEE3C028C8723000857392 /* PdfGen.swift */; };
 		4EBEE3C328C8818100857392 /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBEE3C228C8818100857392 /* TimeTable.swift */; };
 		4EBEE3C728C8AA5D00857392 /* JSONParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBEE3C628C8AA5D00857392 /* JSONParse.swift */; };
@@ -36,6 +38,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4EB8462628C944E400EB77B7 /* GoogleApi.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -44,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		4EB8462328C9445E00EB77B7 /* GoogleApi.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleApi.xcframework; path = frameworks/GoogleApi.xcframework; sourceTree = "<group>"; };
+		4EB8462728C94C8100EB77B7 /* empty.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = empty.pdf; sourceTree = "<group>"; };
 		4EBEE3C028C8723000857392 /* PdfGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfGen.swift; sourceTree = "<group>"; };
 		4EBEE3C228C8818100857392 /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
 		4EBEE3C628C8AA5D00857392 /* JSONParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParse.swift; sourceTree = "<group>"; };
@@ -65,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EB8462428C9445E00EB77B7 /* GoogleApi.xcframework in Frameworks */,
+				4EB8462528C944E400EB77B7 /* GoogleApi.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				4EBEE3C028C8723000857392 /* PdfGen.swift */,
+				4EB8462728C94C8100EB77B7 /* empty.pdf */,
 			);
 			path = PDF;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6855141428B8D2E100504714 /* Assets.xcassets in Resources */,
+				4EB8462828C94C8100EB77B7 /* empty.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

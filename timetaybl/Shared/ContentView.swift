@@ -7,7 +7,7 @@
 
 import SwiftUI
 import CoreData
-
+import PDFKit
 import GoogleApi
 
 
@@ -89,6 +89,10 @@ struct ContentView: View {
     
     @State private var authCode: String = ""
     
+    @State private var pdfViewer = PDFViewer()
+    
+    @State private var pdfRendered = false
+    
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -113,6 +117,9 @@ struct ContentView: View {
                             let events = googleLoader?.getEvents()
                             // print(events!)
                             timetable = parseJSON(json: events!)
+                            
+                            pdfViewer.displayTimeTable(timetable: timetable)
+                            pdfRendered = true
                         }
                     )
                     
@@ -124,6 +131,9 @@ struct ContentView: View {
                         Text(subject.name)
                     }
                 }
+            }
+            if pdfRendered {
+                pdfViewer
             }
         }
     }
