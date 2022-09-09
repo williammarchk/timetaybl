@@ -41,14 +41,29 @@ func drawOnPdf(emptyPdf: Data, timetable: TimeTable) -> Data {
     let style = NSMutableParagraphStyle()
     style.alignment = .center
     
+    let pageWidth = mediaBox.maxX - mediaBox.minX
+    let pageHeight = mediaBox.maxY - mediaBox.minY
+    
     let textAttributes = [
         NSAttributedString.Key.font: NSFont.systemFont(ofSize: 6),
         NSAttributedString.Key.foregroundColor: NSColor.black,
         NSAttributedString.Key.paragraphStyle: style,
     ]
     
-    let pageWidth = mediaBox.maxX - mediaBox.minX
-    let pageHeight = mediaBox.maxY - mediaBox.minY
+    let titleAttributes = [
+        NSAttributedString.Key.font: NSFont.boldSystemFont(ofSize: 20),
+        NSAttributedString.Key.foregroundColor: NSColor.black,
+        NSAttributedString.Key.paragraphStyle: style,
+    ]
+    
+    let title_text = "Your BIS Timetable"
+    let title = NSAttributedString(string: title_text, attributes: titleAttributes)
+    let tPoint = CGPoint(
+        x: 225,
+        y: 810
+    )
+    
+    
 
     let gc = CGContext(consumer: consumer, mediaBox: &mediaBox, nil)!
     let nsgc = NSGraphicsContext(cgContext: gc, flipped: false)
@@ -92,8 +107,11 @@ func drawOnPdf(emptyPdf: Data, timetable: TimeTable) -> Data {
                     gc.saveGState(); do {
                         gc.translateBy(x: roomPoint.x, y: roomPoint.y)
                         room.draw(at: .zero)
+                        
                     }; gc.restoreGState()
                 }
+                title.draw(at:tPoint)
+                gc.restoreGState()
             }
         }
 
