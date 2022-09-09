@@ -157,11 +157,17 @@ struct ContentView: View {
         
             if pdfRendered {
                 pdfViewer
+                Button(action: {
+                    
+                }) {
+                    Text("Download")
+                }
             }
         }
     }
                     
-            
+          
+
 
 struct EditSubject: View {
     var body: some View {

@@ -81,15 +81,100 @@ func parseJSON(json: String) -> TimeTable {
             room: jsonLesson.location
         )
         
+        //print(lesson.endTime)
+        
         if !existingSubject {
             subjects.append(Subject(name: jsonLesson.subjectName, color: Color(white: 1), lessons: [lesson]))
         } else {
             subjects[subjectIndex].lessons.append(lesson)
         }
     }
+    
+    
+    var n = 0
+    
+    while n < unwrappedJSON.count-1 {
+        let ce = unwrappedJSON[n]
+        let ne = unwrappedJSON[n+1]
+        
+        let lel = ((ne.startHour * 60) + ne.startMinute) - ((ce.endHour * 60) + ce.endMinute)
+        print(lel)
+        let dlld = ne
+        print(dlld)
+        
+        var timing: [String] = []
+        var start_time = "10:00"
+        var end_time = "10:40"
+        var sm = 1
+        var sh = 0
+        var em = 1
+        var eh = 0
+        
+        
+        if (ce.endHour < 16) {
+            if ((((ne.startHour * 60) + ne.startMinute) - ((ce.endHour * 60) + ce.endMinute)) > 5 && (((ne.startHour * 60) + ne.startMinute) - ((ce.endHour * 60) + ce.endMinute)) < 30) {
+                
+                print(ce.endMinute)
+                if (ce.endMinute + 5 >= 60) {
+                    print(ce.endMinute)
+                    sh = ce.endHour + 1
+                    start_time = String(sh) + ":" + String(00)
+                } else {
+                    sh = ce.endHour
+                    sm = ce.endMinute + 5
+                    start_time = String(sh) + ":" + String(sm)
+                }
+                
+                if (ne.startMinute - 5 < 0) {
+                    eh = ne.startHour - 1
+                    end_time = String(eh) + ":" + String(55)
+                } else {
+                    eh = ne.startMinute
+                    em = ne.startHour - 5
+                    end_time = String(eh) + ":" + String(em)
+                }
+                
+                var gap = (((ce.endHour * 60) + ce.endMinute) - ((ne.startHour * 60) + ne.startMinute))
+                print (gap)
+                print("Distance between periods" + String(gap))
+                //print("Break is at " + start_time + "-" + end_time)
+            
+            } /*else if ((((ce.endHour * 60) + ce.endMinute) - ((ne.startHour * 60) + ne.startMinute)) > 30) {
+                
+                if (ce.endMinute + 5 >= 60) {
+                    sh = ce.endHour + 1
+                    start_time = String(sh) + ":" + String(00)
+                } else {
+                    sh = ce.endHour
+                    sm = ce.endMinute + 5
+                    start_time = String(sh) + ":" + String(sm)
+                }
+                
+                if (ne.startMinute - 5 < 0) {
+                    eh = ne.startHour - 1
+                    end_time = String(eh) + ":" + String(55)
+                } else {
+                    eh = ne.startMinute
+                    em = ne.startHour - 5
+                    end_time = String(eh) + ":" + String(em)
+                }
+                
+                print("Study Period" + start_time + "-" + end_time)
+            }*/
+        }
+        
+        n += 1
+    }
+    
+    /*var x = 1;
+    while (x < 2) {
+        print("startHour" + String(unwrappedJSON[1].startHour))
+        print("startMinute" + String(unwrappedJSON[1].startMinute))
+        x += 1
+    }*/
 
     for subject in subjects {
-        print(subject.name)
+        //print(subject.name)
     }
     
     return subjects
