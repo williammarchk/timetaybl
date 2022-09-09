@@ -96,11 +96,15 @@ struct ContentView: View {
     var body: some View {
         if !pdfRendered {
             ZStack {
-                LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                LinearGradient(gradient: .init(colors: [Color("Color-1"), Color("Color-2")]), startPoint: .topLeading, endPoint: .bottomTrailing)
                     ScrollView(.vertical) {
                         VStack {
                             Spacer()
-                            Text("Format Your Own Timetable!").font(.system(size: 35))
+                            Text("Format Your Own Timetable!")
+                                .font(.system(size: 45)).bold()
+                                .foregroundColor(.black)
+                                .padding([.top], 10)
+                                .frame(alignment: .center)
                             Spacer()
                             
                             Button(action: {
@@ -109,35 +113,36 @@ struct ContentView: View {
                                 }
                             }) {
                                 HStack() {
-                                    
                                     Image("google")
                                         .renderingMode(.original)
                                         .resizable()
-                                        //.aspectRatio(contentMode: .fit)
-                                        .frame(width: 70, height: 70)
-                                        //.padding([.leading], 5)
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 65, height: 65)
+                                        .padding([.leading], 10)
                                     
                                     Text("Sign in with Google")
-                                        .font(.system(size: 36))
+                                        .font(.system(size: 29))
                                         .padding()
                                         .font(.system(.title, design: .rounded))
-                                        //.padding([.leading], -5)
+                                        .padding([.leading], -5)
+                                        .padding([.trailing], 5)
+                                        .foregroundColor(.white)
                                 }
                             }
                             .buttonStyle(PlainButtonStyle())
-                            .background(LinearGradient(gradient: .init(colors: [Color("Color-2"), Color("Color-1")]), startPoint: .leading, endPoint: .trailing))
+                            .background(LinearGradient(gradient: .init(colors: [Color("Color-2"), Color("Color-1")]), startPoint: .topLeading, endPoint: .bottomTrailing))
                             .cornerRadius(20)
-                            .frame(width: 500, height: 40, alignment: .center)
-                            .padding(.bottom, 20)
-                            .padding(.top, 50)
+                            .frame(width: 400, height: 30, alignment: .center)
+                            .padding(.bottom, 30)
+                            .padding(.top, 325)
 
-                            TextField(
+                            SecureField(
                                 "Enter Authorization Code",
                                 text: $authCode,
                                 onCommit: {
                                     googleLoader?.getClient(authCode)
                                     let events = googleLoader?.getEvents()
-                                    // print(events!)
+                                    //print(events!)
                                     timetable = parseJSON(json: events!)
                                     
                                     pdfViewer.displayTimeTable(timetable: timetable)
@@ -146,6 +151,7 @@ struct ContentView: View {
                             )
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .disableAutocorrection(true)
+                                .frame(width: 350, height: 25, alignment: .center)
                             Spacer()
                             ForEach(timetable, id: \.self) {subject in
                                 Text(subject.name)
@@ -156,15 +162,17 @@ struct ContentView: View {
             }
         
             if pdfRendered {
-                pdfViewer
-                Button(action: {
-                                    
-                }) {
-                    Text("Download")
+                VStack {
+                    pdfViewer
+                    Button(action: {
+                        print("Button Pressed")
+                    }) {
+                        Text("Download")
+                    }
+                    .frame(width: 300, height: 50, alignment: .center)
+                    .padding(.top, 5)
+                    .padding(.bottom, 5)
                 }
-                .frame(width: 300, height: 50, alignment: .center)
-                .padding(.top, 5)
-                .padding(.bottom, 5)
             }
         }
     }

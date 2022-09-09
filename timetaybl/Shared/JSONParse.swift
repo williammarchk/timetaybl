@@ -97,11 +97,6 @@ func parseJSON(json: String) -> TimeTable {
         let ce = unwrappedJSON[n]
         let ne = unwrappedJSON[n+1]
         
-        let lel = ((ne.startHour * 60) + ne.startMinute) - ((ce.endHour * 60) + ce.endMinute)
-        print(lel)
-        let dlld = ne
-        print(dlld)
-        
         var timing: [String] = []
         var start_time = "10:00"
         var end_time = "10:40"
@@ -110,7 +105,32 @@ func parseJSON(json: String) -> TimeTable {
         var em = 1
         var eh = 0
         
-        
+        let lel = ((ne.startHour * 60) + ne.startMinute) - ((ce.endHour * 60) + ce.endMinute)
+        if (ce.endHour < 16) {
+            
+            
+            if (lel > 60) {
+                if (ce.endHour == 2 && ce.endMinute == 30) {
+                    if (ce.endMinute + 5 >= 60) {
+                        //print(ce.endMinute)
+                        sh = ce.endHour + 1
+                        start_time = String(sh) + ":" + String(00)
+                    } else {
+                        sh = ce.endHour
+                        sm = ce.endMinute + 5
+                        start_time = String(sh) + ":" + String(sm)
+                    }
+                } else {
+                    ce.endHour
+                }
+            }
+            print(lel)
+        }
+        let dlld = ne
+        //print(dlld)
+        //ce.append(subjectName: "Break", location: "", week: 1, day: 0, startHour: 2, endHour: 2, startMinute: 35, endMinute: 55)
+        //ce.append(subjectName: "Free Period", location: "", week: 1, day: 0, startHour: 12, endHour: 1, startMinute: 25, endMinute: 25)
+        /*
         if (ce.endHour < 16) {
             if ((((ne.startHour * 60) + ne.startMinute) - ((ce.endHour * 60) + ce.endMinute)) > 5 && (((ne.startHour * 60) + ne.startMinute) - ((ce.endHour * 60) + ce.endMinute)) < 30) {
                 
@@ -162,7 +182,7 @@ func parseJSON(json: String) -> TimeTable {
                 print("Study Period" + start_time + "-" + end_time)
             }*/
         }
-        
+        */
         n += 1
     }
     */
