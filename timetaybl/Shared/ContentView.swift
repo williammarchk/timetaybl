@@ -94,67 +94,67 @@ struct ContentView: View {
     @State private var pdfRendered = false
     
     var body: some View {
-        ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
-            ScrollView(.vertical) {
-                VStack {
-                    Spacer()
-                    Text("Format Your Own Timetable!").font(.system(size: 35))
-                    Spacer()
-                    
-                    Button(action: {
-                        if let url = URL(string: authURL) {
-                            NSWorkspace.shared.open(url)
-                        }
-                    }) {
-                        HStack() {
+        if !pdfRendered {
+            ZStack {
+                LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                    ScrollView(.vertical) {
+                        VStack {
+                            Spacer()
+                            Text("Format Your Own Timetable!").font(.system(size: 35))
+                            Spacer()
                             
-                            Image("google")
-                                .renderingMode(.original)
-                                .resizable()
-                                //.aspectRatio(contentMode: .fit)
-                                .frame(width: 70, height: 70)
-                                //.padding([.leading], 5)
-                            
-                            Text("Sign in with Google")
-                                .font(.system(size: 36))
-                                .padding()
-                                .font(.system(.title, design: .rounded))
-                                //.padding([.leading], -5)
-                        }
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    .background(LinearGradient(gradient: .init(colors: [Color("Color-2"), Color("Color-1")]), startPoint: .leading, endPoint: .trailing))
-                    .cornerRadius(20)
-                    .frame(width: 500, height: 40, alignment: .center)
-                    .padding(.bottom, 20)
-                    .padding(.top, 50)
+                            Button(action: {
+                                if let url = URL(string: authURL) {
+                                    NSWorkspace.shared.open(url)
+                                }
+                            }) {
+                                HStack() {
+                                    
+                                    Image("google")
+                                        .renderingMode(.original)
+                                        .resizable()
+                                        //.aspectRatio(contentMode: .fit)
+                                        .frame(width: 70, height: 70)
+                                        //.padding([.leading], 5)
+                                    
+                                    Text("Sign in with Google")
+                                        .font(.system(size: 36))
+                                        .padding()
+                                        .font(.system(.title, design: .rounded))
+                                        //.padding([.leading], -5)
+                                }
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            .background(LinearGradient(gradient: .init(colors: [Color("Color-2"), Color("Color-1")]), startPoint: .leading, endPoint: .trailing))
+                            .cornerRadius(20)
+                            .frame(width: 500, height: 40, alignment: .center)
+                            .padding(.bottom, 20)
+                            .padding(.top, 50)
 
-                    }
-                    
-                    TextField(
-                        "Enter Authorization Code",
-                        text: $authCode,
-                        onCommit: {
-                            googleLoader?.getClient(authCode)
-                            let events = googleLoader?.getEvents()
-                            // print(events!)
-                            timetable = parseJSON(json: events!)
-                            
-                            pdfViewer.displayTimeTable(timetable: timetable)
-                            pdfRendered = true
+                            TextField(
+                                "Enter Authorization Code",
+                                text: $authCode,
+                                onCommit: {
+                                    googleLoader?.getClient(authCode)
+                                    let events = googleLoader?.getEvents()
+                                    // print(events!)
+                                    timetable = parseJSON(json: events!)
+                                    
+                                    pdfViewer.displayTimeTable(timetable: timetable)
+                                    pdfRendered = true
+                                }
+                            )
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .disableAutocorrection(true)
+                            Spacer()
+                            ForEach(timetable, id: \.self) {subject in
+                                Text(subject.name)
+                            }
                         }
-                    )
-                    
-                    Spacer()
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .disableAutocorrection(true)
-                    Spacer()
-                    ForEach(timetable, id: \.self) {subject in 
-                        Text(subject.name)
                     }
                 }
             }
+        
             if pdfRendered {
                 pdfViewer
             }
