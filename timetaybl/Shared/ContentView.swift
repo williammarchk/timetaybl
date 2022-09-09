@@ -158,10 +158,13 @@ struct ContentView: View {
             if pdfRendered {
                 pdfViewer
                 Button(action: {
-                    
+                                    
                 }) {
                     Text("Download")
                 }
+                .frame(width: 300, height: 50, alignment: .center)
+                .padding(.top, 5)
+                .padding(.bottom, 5)
             }
         }
     }

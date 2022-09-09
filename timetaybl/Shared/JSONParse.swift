@@ -89,8 +89,8 @@ func parseJSON(json: String) -> TimeTable {
             subjects[subjectIndex].lessons.append(lesson)
         }
     }
-    
-    
+
+    /*
     var n = 0
     
     while n < unwrappedJSON.count-1 {
@@ -165,7 +165,7 @@ func parseJSON(json: String) -> TimeTable {
         
         n += 1
     }
-    
+    */
     /*var x = 1;
     while (x < 2) {
         print("startHour" + String(unwrappedJSON[1].startHour))
@@ -173,6 +173,7 @@ func parseJSON(json: String) -> TimeTable {
         x += 1
     }*/
 
+    
     for subject in subjects {
         //print(subject.name)
     }
