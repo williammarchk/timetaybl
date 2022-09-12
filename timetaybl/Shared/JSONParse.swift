@@ -91,6 +91,7 @@ func parseJSON(json: String) -> TimeTable {
     }
 
     /*
+    print(unwrappedJSON)
     var n = 0
     
     while n < unwrappedJSON.count-1 {
@@ -105,14 +106,15 @@ func parseJSON(json: String) -> TimeTable {
         var em = 1
         var eh = 0
         
-        let lel = ((ne.startHour * 60) + ne.startMinute) - ((ce.endHour * 60) + ce.endMinute)
+        var lel = ((ne.startHour * 60) + ne.startMinute) - ((ce.endHour * 60) + ce.endMinute)
         if (ce.endHour < 16) {
             
             
-            if (lel > 60) {
+            while (lel >= 60) {
                 if (ce.endHour == 2 && ce.endMinute == 30) {
                     if (ce.endMinute + 5 >= 60) {
                         //print(ce.endMinute)
+                        sm = 0
                         sh = ce.endHour + 1
                         start_time = String(sh) + ":" + String(00)
                     } else {
@@ -120,16 +122,34 @@ func parseJSON(json: String) -> TimeTable {
                         sm = ce.endMinute + 5
                         start_time = String(sh) + ":" + String(sm)
                     }
+                    
+                    lel = lel - 30
+                    print("Time left is: " + String(lel))
                 } else {
-                    ce.endHour
+                    if (ce.endMinute + 5 >= 60) {
+                        sm = 0
+                        sh = ce.endHour + 1
+                        start_time = String(sh) + ":" + String(00)
+                    } else {
+                        sh = ce.endHour
+                        sm = ce.endMinute + 5
+                        start_time = String(sh) + ":" + String(sm)
+                    }
+                    end_time = String(sh+1) + ":" + String(sm)
+                    print(start_time + "-" + end_time)
+                    lel = lel - 65
+                    //ce.append(subjectName: "Free Period", location: "", week: 1, day: 0, startHour: sh, endHour: sh+1, startMinute: sm, endMinute: sm)
                 }
             }
             print(lel)
         }
         let dlld = ne
+        
         //print(dlld)
         //ce.append(subjectName: "Break", location: "", week: 1, day: 0, startHour: 2, endHour: 2, startMinute: 35, endMinute: 55)
         //ce.append(subjectName: "Free Period", location: "", week: 1, day: 0, startHour: 12, endHour: 1, startMinute: 25, endMinute: 25)
+        
+        
         /*
         if (ce.endHour < 16) {
             if ((((ne.startHour * 60) + ne.startMinute) - ((ce.endHour * 60) + ce.endMinute)) > 5 && (((ne.startHour * 60) + ne.startMinute) - ((ce.endHour * 60) + ce.endMinute)) < 30) {

@@ -10,7 +10,6 @@ import CoreData
 import PDFKit
 import GoogleApi
 
-
 //struct ContentView: View {
 //    @Environment(\.managedObjectContext) private var viewContext
 //
@@ -75,6 +74,7 @@ import GoogleApi
 
 
 struct ContentView: View {
+
     var googleLoader = GoogleapiNewDataLoader("{\"installed\":{\"client_id\":\"184149248061-u0pqmh6q7gkheoffs3pelf111qhdaaqk.apps.googleusercontent.com\",\"project_id\":\"timetable-361614\",\"auth_uri\":\"https://accounts.google.com/o/oauth2/auth\",\"token_uri\":\"https://oauth2.googleapis.com/token\",\"auth_provider_x509_cert_url\":\"https://www.googleapis.com/oauth2/v1/certs\",\"client_secret\":\"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\",\"redirect_uris\":[\"urn:ietf:wg:oauth:2.0:oob\"]}}")
     
     let authURL: String
@@ -92,6 +92,8 @@ struct ContentView: View {
     @State private var pdfViewer = PDFViewer()
     
     @State private var pdfRendered = false
+    
+    @State private var invalidToken = false
     
     var body: some View {
         if !pdfRendered {
@@ -140,18 +142,27 @@ struct ContentView: View {
                                 "Enter Authorization Code",
                                 text: $authCode,
                                 onCommit: {
-                                    googleLoader?.getClient(authCode)
-                                    let events = googleLoader?.getEvents()
-                                    //print(events!)
-                                    timetable = parseJSON(json: events!)
-                                    
-                                    pdfViewer.displayTimeTable(timetable: timetable)
-                                    pdfRendered = true
+                                    if authCode.count == 62 && authCode.contains("4/1AdQt8q") {
+                                        googleLoader?.getClient(authCode)
+                                        let events = googleLoader?.getEvents()
+                                        //print(events!)
+                                        timetable = parseJSON(json: events!)
+                                        
+                                        pdfViewer.displayTimeTable(timetable: timetable)
+                                        pdfRendered = true
+                                    } else {
+                                        authCode = ""
+                                        invalidToken = true
+                                    }
                                 }
                             )
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .disableAutocorrection(true)
                                 .frame(width: 350, height: 25, alignment: .center)
+                                .alert(isPresented: $invalidToken) {
+                                    Alert(title: Text("Invalid Token"), message: Text("The Token entered is not valid, please generate a new Token by clicking the button above."), dismissButton: .default(Text("OK")))
+                                }
+                                       
                             Spacer()
                             ForEach(timetable, id: \.self) {subject in
                                 Text(subject.name)
@@ -213,3 +224,23 @@ struct ContentView_Previews: PreviewProvider {
         ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
+
+
+/*
+ 
+ enum AuthenticationError: Error, LocalizedError, Identifiable {
+     case invalidCredentials
+     
+     var id: String {
+         self.localizedDescription
+     }
+     
+     var errorDescription: String? {
+         switch self {
+         case .invalidCredentials:
+             return NSLocalizedString("Either your username or password are incorrect. Please try again", comment: "")
+         }
+     }
+ }
+ 
+ */
