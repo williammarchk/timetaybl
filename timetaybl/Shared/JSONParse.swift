@@ -91,6 +91,7 @@ func parseJSON(json: String) -> TimeTable {
     }
 
     /*
+     
     print(unwrappedJSON)
     var n = 0
     
