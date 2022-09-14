@@ -89,131 +89,110 @@ func parseJSON(json: String) -> TimeTable {
             subjects[subjectIndex].lessons.append(lesson)
         }
     }
-
-    /*
-     
-    print(unwrappedJSON)
+    
     var n = 0
     
-    while n < unwrappedJSON.count-1 {
+    while n < 77 {
         let ce = unwrappedJSON[n]
         let ne = unwrappedJSON[n+1]
         
-        var timing: [String] = []
-        var start_time = "10:00"
-        var end_time = "10:40"
         var sm = 1
         var sh = 0
         var em = 1
         var eh = 0
+        let pd = ce.day
+        let pw = ce.week
+        var case14 = false
         
         var lel = ((ne.startHour * 60) + ne.startMinute) - ((ce.endHour * 60) + ce.endMinute)
-        if (ce.endHour < 16) {
-            
-            
-            while (lel >= 60) {
-                if (ce.endHour == 2 && ce.endMinute == 30) {
-                    if (ce.endMinute + 5 >= 60) {
-                        //print(ce.endMinute)
-                        sm = 0
-                        sh = ce.endHour + 1
-                        start_time = String(sh) + ":" + String(00)
-                    } else {
-                        sh = ce.endHour
-                        sm = ce.endMinute + 5
-                        start_time = String(sh) + ":" + String(sm)
-                    }
-                    
-                    lel = lel - 30
-                    print("Time left is: " + String(lel))
-                } else {
-                    if (ce.endMinute + 5 >= 60) {
-                        sm = 0
-                        sh = ce.endHour + 1
-                        start_time = String(sh) + ":" + String(00)
-                    } else {
-                        sh = ce.endHour
-                        sm = ce.endMinute + 5
-                        start_time = String(sh) + ":" + String(sm)
-                    }
-                    end_time = String(sh+1) + ":" + String(sm)
-                    print(start_time + "-" + end_time)
-                    lel = lel - 65
-                    //ce.append(subjectName: "Free Period", location: "", week: 1, day: 0, startHour: sh, endHour: sh+1, startMinute: sm, endMinute: sm)
-                }
+        if (lel < 0 && ce.day != 4) {
+            lel = ((16 * 60)) - ((ce.endHour * 60) + ce.endMinute)
+        } else if (lel < 0 && ce.day == 4) {
+            ((14 * 60) + 20) - ((ce.endHour * 60) + ce.endMinute)
+        }
+                
+        if (ce.endHour == 14 && ce.endMinute == 55) {
+            case14 = true
+        }
+        
+        if (lel > 60 && (ce.endHour != 14 || case14 == true)) {
+            if (ce.day != 4) {
+                lel = lel - 65
+            } else if (ce.day == 4) {
+                lel = lel - 55
             }
-            print(lel)
-        }
-        let dlld = ne
-        
-        //print(dlld)
-        //ce.append(subjectName: "Break", location: "", week: 1, day: 0, startHour: 2, endHour: 2, startMinute: 35, endMinute: 55)
-        //ce.append(subjectName: "Free Period", location: "", week: 1, day: 0, startHour: 12, endHour: 1, startMinute: 25, endMinute: 25)
-        
-        
-        /*
-        if (ce.endHour < 16) {
-            if ((((ne.startHour * 60) + ne.startMinute) - ((ce.endHour * 60) + ce.endMinute)) > 5 && (((ne.startHour * 60) + ne.startMinute) - ((ce.endHour * 60) + ce.endMinute)) < 30) {
-                
-                print(ce.endMinute)
-                if (ce.endMinute + 5 >= 60) {
-                    print(ce.endMinute)
-                    sh = ce.endHour + 1
-                    start_time = String(sh) + ":" + String(00)
-                } else {
-                    sh = ce.endHour
-                    sm = ce.endMinute + 5
-                    start_time = String(sh) + ":" + String(sm)
-                }
-                
-                if (ne.startMinute - 5 < 0) {
-                    eh = ne.startHour - 1
-                    end_time = String(eh) + ":" + String(55)
-                } else {
-                    eh = ne.startMinute
-                    em = ne.startHour - 5
-                    end_time = String(eh) + ":" + String(em)
-                }
-                
-                var gap = (((ce.endHour * 60) + ce.endMinute) - ((ne.startHour * 60) + ne.startMinute))
-                print (gap)
-                print("Distance between periods" + String(gap))
-                //print("Break is at " + start_time + "-" + end_time)
             
-            } /*else if ((((ce.endHour * 60) + ce.endMinute) - ((ne.startHour * 60) + ne.startMinute)) > 30) {
-                
-                if (ce.endMinute + 5 >= 60) {
-                    sh = ce.endHour + 1
-                    start_time = String(sh) + ":" + String(00)
+            if (ce.endMinute + 5 >= 60) {
+                sm = 0
+                sh = ce.endHour + 1
+            } else {
+                sh = ce.endHour
+                sm = ce.endMinute + 5
+            }
+            
+            if (ce.day == 4) {
+                if (sm + 50 > 55) {
+                    eh = sh + 1
+                    em = (sm + 50)-60
                 } else {
-                    sh = ce.endHour
-                    sm = ce.endMinute + 5
-                    start_time = String(sh) + ":" + String(sm)
+                    eh = sh
+                    em = sm + 50
                 }
-                
-                if (ne.startMinute - 5 < 0) {
-                    eh = ne.startHour - 1
-                    end_time = String(eh) + ":" + String(55)
-                } else {
-                    eh = ne.startMinute
-                    em = ne.startHour - 5
-                    end_time = String(eh) + ":" + String(em)
-                }
-                
-                print("Study Period" + start_time + "-" + end_time)
-            }*/
+            } else {
+                eh = sh+1
+                em = sm
+            }
+            
+            unwrappedJSON.insert(APIElement(subjectName: "Study Period", location: "", week: pw, day: pd, startHour: sh, endHour: eh, startMinute: sm, endMinute: em), at: n+1)
+        } else if (ce.endHour == 14 && lel > 5) {
+            
+            if (ce.endMinute + 5 >= 60) {
+                sm = 0
+                sh = ce.endHour + 1
+            } else {
+                sh = ce.endHour
+                sm = ce.endMinute + 5
+            }
+            
+            if (ne.startHour < 15) {
+                eh = sh
+            } else {
+                eh = ne.startHour-1
+            }
+            
+            if (ne.startMinute-5 < 0) {
+                em = 55
+            } else {
+                em = ne.startMinute-5
+            }
+            
+            unwrappedJSON.insert(APIElement(subjectName: "Break", location: "", week: pw, day: pd, startHour: sh, endHour: eh, startMinute: sm, endMinute: em), at: n+1)
+        } else if (ce.day == 4 && lel == 55) {
+            
+            if (ce.endMinute + 5 >= 60) {
+                sm = 0
+                sh = ce.endHour + 1
+            } else {
+                sh = ce.endHour
+                sm = ce.endMinute + 5
+            }
+            
+            if (ce.endMinute+45 >= 60) {
+                em = (sm + 45)-60
+                eh = sh + 1
+            } else {
+                em = sm + 45
+                eh = sh
+            }
+            
+            unwrappedJSON.insert(APIElement(subjectName: "Lunch", location: "", week: pw, day: pd, startHour: sh, endHour: eh, startMinute: sm, endMinute: em), at: n+1)
         }
-        */
+        
+        print(unwrappedJSON[n])
+        
         n += 1
     }
-    */
-    /*var x = 1;
-    while (x < 2) {
-        print("startHour" + String(unwrappedJSON[1].startHour))
-        print("startMinute" + String(unwrappedJSON[1].startMinute))
-        x += 1
-    }*/
-
+    
     
     for subject in subjects {
         //print(subject.name)

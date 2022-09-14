@@ -142,7 +142,7 @@ struct ContentView: View {
                                 "Enter Authorization Code",
                                 text: $authCode,
                                 onCommit: {
-                                    if authCode.count == 62 && authCode.contains("4/1AdQt8q") {
+                                    if authCode.count == 62 /*&& authCode.contains("4/1AdQt8q")*/ {
                                         googleLoader?.getClient(authCode)
                                         let events = googleLoader?.getEvents()
                                         //print(events!)
