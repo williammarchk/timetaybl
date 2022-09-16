@@ -33,6 +33,111 @@ func parseJSON(json: String) -> TimeTable {
     
     var unwrappedJSON = decodedJSON!
     
+    // Adds free periods, break and lunch when not on calender
+    var n = 0
+    
+    while n < 83 {
+        let ce = unwrappedJSON[n]
+        let ne = unwrappedJSON[n+1]
+        
+        var sm = 1
+        var sh = 0
+        var em = 1
+        var eh = 0
+        let pd = ce.day
+        let pw = ce.week
+        var case14 = false
+        
+        var lel = ((ne.startHour * 60) + ne.startMinute) - ((ce.endHour * 60) + ce.endMinute)
+        if (lel < 0 && ce.day != 4) {
+            lel = ((16 * 60)) - ((ce.endHour * 60) + ce.endMinute)
+        } else if (lel < 0 && ce.day == 4) {
+            ((14 * 60) + 20) - ((ce.endHour * 60) + ce.endMinute)
+        }
+                
+        if (ce.endHour == 14 && ce.endMinute == 55) {
+            case14 = true
+        }
+        
+        if (lel > 60 && (ce.endHour != 14 || case14 == true)) {
+            if (ce.day != 4) {
+                lel = lel - 65
+            } else if (ce.day == 4) {
+                lel = lel - 55
+            }
+            
+            if (ce.endMinute + 5 >= 60) {
+                sm = 0
+                sh = ce.endHour + 1
+            } else {
+                sh = ce.endHour
+                sm = ce.endMinute + 5
+            }
+            
+            if (ce.day == 4) {
+                if (sm + 50 > 55) {
+                    eh = sh + 1
+                    em = (sm + 50)-60
+                } else {
+                    eh = sh
+                    em = sm + 50
+                }
+            } else {
+                eh = sh+1
+                em = sm
+            }
+            
+            unwrappedJSON.insert(APIElement(subjectName: "Free Period", location: "", week: pw, day: pd, startHour: sh, endHour: eh, startMinute: sm, endMinute: em), at: n+1)
+        } else if (ce.endHour == 14 && lel > 5) {
+            
+            if (ce.endMinute + 5 >= 60) {
+                sm = 0
+                sh = ce.endHour + 1
+            } else {
+                sh = ce.endHour
+                sm = ce.endMinute + 5
+            }
+            
+            if (ne.startHour < 15) {
+                eh = sh
+            } else {
+                eh = ne.startHour-1
+            }
+            
+            if (ne.startMinute-5 < 0) {
+                em = 55
+            } else {
+                em = ne.startMinute-5
+            }
+            
+            unwrappedJSON.insert(APIElement(subjectName: "Break", location: "", week: pw, day: pd, startHour: sh, endHour: eh, startMinute: sm, endMinute: em), at: n+1)
+        } else if (ce.day == 4 && lel == 55) {
+            
+            if (ce.endMinute + 5 >= 60) {
+                sm = 0
+                sh = ce.endHour + 1
+            } else {
+                sh = ce.endHour
+                sm = ce.endMinute + 5
+            }
+            
+            if (ce.endMinute+45 >= 60) {
+                em = (sm + 45)-60
+                eh = sh + 1
+            } else {
+                em = sm + 45
+                eh = sh
+            }
+            
+            unwrappedJSON.insert(APIElement(subjectName: "Lunch", location: "", week: pw, day: pd, startHour: sh, endHour: eh, startMinute: sm, endMinute: em), at: n+1)
+        }
+        
+        print(unwrappedJSON[n])
+        
+        n += 1
+    }
+    
+    //
     var subjects: [Subject] = []
     
     var i = 0
@@ -89,110 +194,6 @@ func parseJSON(json: String) -> TimeTable {
             subjects[subjectIndex].lessons.append(lesson)
         }
     }
-    
-    var n = 0
-    
-    while n < 77 {
-        let ce = unwrappedJSON[n]
-        let ne = unwrappedJSON[n+1]
-        
-        var sm = 1
-        var sh = 0
-        var em = 1
-        var eh = 0
-        let pd = ce.day
-        let pw = ce.week
-        var case14 = false
-        
-        var lel = ((ne.startHour * 60) + ne.startMinute) - ((ce.endHour * 60) + ce.endMinute)
-        if (lel < 0 && ce.day != 4) {
-            lel = ((16 * 60)) - ((ce.endHour * 60) + ce.endMinute)
-        } else if (lel < 0 && ce.day == 4) {
-            ((14 * 60) + 20) - ((ce.endHour * 60) + ce.endMinute)
-        }
-                
-        if (ce.endHour == 14 && ce.endMinute == 55) {
-            case14 = true
-        }
-        
-        if (lel > 60 && (ce.endHour != 14 || case14 == true)) {
-            if (ce.day != 4) {
-                lel = lel - 65
-            } else if (ce.day == 4) {
-                lel = lel - 55
-            }
-            
-            if (ce.endMinute + 5 >= 60) {
-                sm = 0
-                sh = ce.endHour + 1
-            } else {
-                sh = ce.endHour
-                sm = ce.endMinute + 5
-            }
-            
-            if (ce.day == 4) {
-                if (sm + 50 > 55) {
-                    eh = sh + 1
-                    em = (sm + 50)-60
-                } else {
-                    eh = sh
-                    em = sm + 50
-                }
-            } else {
-                eh = sh+1
-                em = sm
-            }
-            
-            unwrappedJSON.insert(APIElement(subjectName: "Study Period", location: "", week: pw, day: pd, startHour: sh, endHour: eh, startMinute: sm, endMinute: em), at: n+1)
-        } else if (ce.endHour == 14 && lel > 5) {
-            
-            if (ce.endMinute + 5 >= 60) {
-                sm = 0
-                sh = ce.endHour + 1
-            } else {
-                sh = ce.endHour
-                sm = ce.endMinute + 5
-            }
-            
-            if (ne.startHour < 15) {
-                eh = sh
-            } else {
-                eh = ne.startHour-1
-            }
-            
-            if (ne.startMinute-5 < 0) {
-                em = 55
-            } else {
-                em = ne.startMinute-5
-            }
-            
-            unwrappedJSON.insert(APIElement(subjectName: "Break", location: "", week: pw, day: pd, startHour: sh, endHour: eh, startMinute: sm, endMinute: em), at: n+1)
-        } else if (ce.day == 4 && lel == 55) {
-            
-            if (ce.endMinute + 5 >= 60) {
-                sm = 0
-                sh = ce.endHour + 1
-            } else {
-                sh = ce.endHour
-                sm = ce.endMinute + 5
-            }
-            
-            if (ce.endMinute+45 >= 60) {
-                em = (sm + 45)-60
-                eh = sh + 1
-            } else {
-                em = sm + 45
-                eh = sh
-            }
-            
-            unwrappedJSON.insert(APIElement(subjectName: "Lunch", location: "", week: pw, day: pd, startHour: sh, endHour: eh, startMinute: sm, endMinute: em), at: n+1)
-        }
-        
-        print(unwrappedJSON[n])
-        
-        n += 1
-    }
-    
     
     for subject in subjects {
         //print(subject.name)
